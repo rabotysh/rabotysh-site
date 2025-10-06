@@ -5,7 +5,7 @@
       "name": "Работыш",
       "type": "canon",
       "department": "office",
-      "description": "Коричневый кот в белой рубашке и синем галстуке — символ офисной усталости.",
+      "description": "Коричневый кот в белой рубашке и синем галстуке.",
       "image": "images/rabotysh.webp",
       "thumb": "images/rabotysh_512.webp"
     },
@@ -14,7 +14,7 @@
       "name": "Работышка",
       "type": "canon",
       "department": "office",
-      "description": "Более светлый кот с розовым галстуком. Амбициозна и стремится к карьерному росту.",
+      "description": "Светлее, с розовым галстуком. Амбициозна и энергична.",
       "image": "images/rabotyshka.webp",
       "thumb": "images/rabotyshka_512.webp"
     }
