@@ -6,7 +6,11 @@
   <title>Вселенная Работышей</title>
   <meta name="description" content="Вселенная Работышей — цифровой каталог персонажей.">
   <meta name="theme-color" content="#F4EDE4">
-  <link rel="stylesheet" href="../styles.css?v=2">
+
+  <!-- 🔹 автоматическая версия -->
+  <script src="../version.js"></script>
+
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
   <header class="site-header">
@@ -19,7 +23,6 @@
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero">
       <div class="container hero-inner">
         <h1>Вселенная Работышей</h1>
@@ -31,7 +34,6 @@
       </div>
     </section>
 
-    <!-- FILTERS -->
     <section id="filters" class="filters">
       <div class="container">
         <div class="filters-row">
@@ -69,7 +71,6 @@
       </div>
     </section>
 
-    <!-- GALLERY -->
     <section id="gallery" class="gallery">
       <div class="container">
         <div id="grid" class="grid" aria-live="polite"></div>
@@ -77,7 +78,6 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about" class="about">
       <div class="container">
         <h2>О проекте</h2>
@@ -87,24 +87,6 @@
     </section>
   </main>
 
-  <!-- MODAL -->
-  <dialog id="modal" class="modal">
-    <button class="modal-close" aria-label="Закрыть">✕</button>
-    <div class="modal-body">
-      <div class="modal-media"><img id="m-img" alt=""></div>
-      <div class="modal-meta">
-        <h3 id="m-name"></h3>
-        <p id="m-desc"></p>
-        <div class="meta-rows">
-          <div class="meta-row"><span>Отдел:</span> <span id="m-dept"></span></div>
-          <div class="meta-row"><span>Тип:</span> <span id="m-type"></span></div>
-          <div class="meta-row" id="m-author-row"><span>Автор:</span> <span id="m-author"></span></div>
-          <div class="meta-row" id="m-links-row"><span>Ссылки:</span> <span id="m-links"></span></div>
-        </div>
-      </div>
-    </div>
-  </dialog>
-
-  <script src="app.js?v=2"></script>
+  <script src="app.js"></script>
 </body>
 </html>
