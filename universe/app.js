@@ -1,57 +1,56 @@
-// Путь к данным (файл лежит в корне)
+// Путь к данным (файл в корне)
 const DATA_URL = '../data/characters.json';
 
-let all = [];
-let view = [];
+let ALL = [];
+let VIEW = [];
 
 async function loadData(){
   const res = await fetch(DATA_URL);
   const data = await res.json();
-  all = Array.isArray(data) ? data : (data.characters || []);
-  view = all.slice();
+  ALL = Array.isArray(data) ? data : (data.characters || []);
+  VIEW = ALL.slice();
   render();
+}
+
+function dept(d){return({office:'Офис',factory:'Завод',delivery:'Доставка',med:'Медицина',freelance:'Фриланс',other:'Прочее'}[d]||'—');}
+function type(t){return({canon:'Канон',fanart:'Фан'}[t]||'—');}
+
+function makeCard(ch){
+  const a = document.createElement('a');
+  a.href = '#';
+  a.className = 'card';
+  a.innerHTML = `
+    <img class="thumb" src="../${ch.thumb || ch.image}" alt="${ch.name}" loading="lazy" decoding="async">
+    <div class="card-body">
+      <h3>${ch.name}</h3>
+      <p class="desc">${ch.description || ''}</p>
+      <div class="meta">
+        <span class="chip">${dept(ch.department)}</span>
+        <span class="chip">${type(ch.type)}</span>
+      </div>
+    </div>`;
+  a.addEventListener('click', e => { e.preventDefault(); openModal(ch); });
+  return a;
 }
 
 function render(){
   const grid = document.getElementById('grid');
   const empty = document.getElementById('empty');
   grid.innerHTML = '';
-
-  if (!view.length){ empty.hidden = false; return; }
+  if(!VIEW.length){ empty.hidden = false; return; }
   empty.hidden = true;
-
-  view.forEach(ch => {
-    const a = document.createElement('a');
-    a.href = '#';
-    a.className = 'card';
-    a.innerHTML = `
-      <img class="thumb" src="../${ch.thumb || ch.image}" alt="${ch.name}" loading="lazy" decoding="async">
-      <div class="card-body">
-        <h3>${ch.name}</h3>
-        <p class="desc">${ch.description}</p>
-        <div class="meta">
-          <span class="chip">${dept(ch.department)}</span>
-          <span class="chip">${type(ch.type)}</span>
-        </div>
-      </div>
-    `;
-    a.addEventListener('click', e => { e.preventDefault(); openModal(ch); });
-    grid.appendChild(a);
-  });
+  VIEW.forEach(ch => grid.appendChild(makeCard(ch)));
 }
-
-function dept(d){return({office:'Офис',factory:'Завод',delivery:'Доставка',med:'Медицина',freelance:'Фриланс',other:'Прочее'}[d]||'—');}
-function type(t){return({canon:'Канон',fanart:'Фан'}[t]||'—');}
 
 function applyFilters(){
   const q = document.getElementById('q').value.toLowerCase();
   const fd = document.getElementById('f-dept').value;
   const ft = document.getElementById('f-type').value;
 
-  view = all.filter(ch => {
+  VIEW = ALL.filter(ch => {
     const okDept = !fd || ch.department === fd;
     const okType = !ft || ch.type === ft;
-    const hay = `${ch.name} ${ch.description} ${(ch.tags||[]).join(' ')}`.toLowerCase();
+    const hay = `${ch.name} ${ch.description||''} ${(ch.tags||[]).join(' ')}`.toLowerCase();
     const okQ = !q || hay.includes(q);
     return okDept && okType && okQ;
   });
@@ -62,13 +61,14 @@ function resetFilters(){
   document.getElementById('q').value = '';
   document.getElementById('f-dept').value = '';
   document.getElementById('f-type').value = '';
-  view = all.slice(); render();
+  VIEW = ALL.slice();
+  render();
 }
 
 function openModal(ch){
   document.getElementById('m-img').src = `../${ch.image}`;
   document.getElementById('m-name').textContent = ch.name;
-  document.getElementById('m-desc').textContent = ch.description;
+  document.getElementById('m-desc').textContent = ch.description || '';
   document.getElementById('m-dept').textContent = dept(ch.department);
   document.getElementById('m-type').textContent = type(ch.type);
 
@@ -83,15 +83,16 @@ function openModal(ch){
   document.getElementById('modal').showModal();
 }
 
-document.addEventListener('click',e=>{
-  if (e.target.matches('.modal-close')) document.getElementById('modal').close();
-});
-document.addEventListener('input',e=>{
+/* события */
+document.addEventListener('DOMContentLoaded', loadData);
+document.addEventListener('input', e => {
   if (['q','f-dept','f-type'].includes(e.target.id)) applyFilters();
 });
-document.addEventListener('click',e=>{
-  if (e.target.id==='reset') resetFilters();
-  if (e.target.matches('.pill')){ document.getElementById('f-dept').value = e.target.dataset.dept || ''; applyFilters(); }
+document.addEventListener('click', e => {
+  if (e.target.id === 'reset') resetFilters();
+  if (e.target.matches('.pill')){
+    document.getElementById('f-dept').value = e.target.dataset.dept || '';
+    applyFilters();
+  }
+  if (e.target.matches('.modal-close')) document.getElementById('modal').close();
 });
-
-document.addEventListener('DOMContentLoaded', loadData);
