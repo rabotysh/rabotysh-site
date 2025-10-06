@@ -28,7 +28,7 @@
       </div>
     </section>
 
-    <!-- ФИЛЬТРЫ/СОРТИРОВКА -->
+    <!-- ПОИСК / СОРТ / КАТЕГОРИЯ -->
     <section id="filters" class="filters">
       <div class="container">
         <div class="filters-row">
@@ -36,6 +36,11 @@
             <input id="q" type="search" placeholder="Поиск по имени…">
           </div>
           <div class="selects">
+            <select id="type-by" aria-label="Категория">
+              <option value="">Все категории</option>
+              <option value="canon">Канон</option>
+              <option value="fan">Фан</option>
+            </select>
             <select id="sort-by" aria-label="Сортировка">
               <option value="new">По новизне</option>
               <option value="name">По алфавиту</option>
@@ -75,14 +80,13 @@
     </div>
   </footer>
 
-  <!-- ГАЛЕРЕЯ -->
   <script src="app.js?v=1"></script>
   <script>
-    // принудительно ломаем кеш, чтобы правки сразу подхватывались
+    // принудительно обновляем версию JS при каждом заходе
     (function bump(){
-      const el = document.currentScript.previousElementSibling;
-      if (el && el.tagName === 'SCRIPT' && el.src.indexOf('?v=') === -1) {
-        el.src = el.src + '?v=' + Math.floor(Math.random()*100000);
+      const s = document.currentScript.previousElementSibling;
+      if (s && s.tagName === 'SCRIPT' && !/\?v=/.test(s.src)) {
+        s.src = s.src + '?v=' + Math.floor(Math.random()*1e6);
       }
     })();
   </script>
