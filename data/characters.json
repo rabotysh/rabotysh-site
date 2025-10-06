@@ -5,18 +5,42 @@
       "name": "Работыш",
       "type": "canon",
       "department": "office",
-      "description": "Коричневый кот в белой рубашке и синем галстуке.",
+      "description": "Коричневый кот в белой рубашке и синем галстуке. Символ офисной усталости и упорства.",
       "image": "images/rabotysh.webp",
-      "thumb": "images/rabotysh_512.webp"
+      "thumb": "images/rabotysh_512.webp",
+      "tags": ["офис", "кот", "канон"]
     },
     {
       "id": "rabotyshka",
       "name": "Работышка",
       "type": "canon",
       "department": "office",
-      "description": "Светлее, с розовым галстуком. Амбициозна и энергична.",
+      "description": "Светлый кот с розовым галстуком. Амбициозен и энергичен.",
       "image": "images/rabotyshka.webp",
-      "thumb": "images/rabotyshka_512.webp"
+      "thumb": "images/rabotyshka_512.webp",
+      "tags": ["офис", "канон"]
+    },
+    {
+      "id": "deliver-cat",
+      "name": "Работыш-курьер",
+      "type": "fanart",
+      "department": "delivery",
+      "description": "В желтом жилете, носит посылки даже в дождь.",
+      "image": "images/deliver.webp",
+      "thumb": "images/deliver_512.webp",
+      "tags": ["доставка", "фан"],
+      "author": "Иван П.",
+      "links": ["https://vk.com/...", "https://instagram.com/..."]
+    },
+    {
+      "id": "medic-cat",
+      "name": "Медработыш",
+      "type": "fanart",
+      "department": "med",
+      "description": "Врач в маске и халате, следит за здоровьем всей вселенной.",
+      "image": "images/medic.webp",
+      "thumb": "images/medic_512.webp",
+      "tags": ["медицина", "фан"]
     }
   ]
 }
