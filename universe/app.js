@@ -1,104 +1,154 @@
-<!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Вселенная Работышей</title>
-  <meta name="theme-color" content="#F4EDE4">
-  <script src="../version.js"></script>
-  <link rel="stylesheet" href="../styles.css">
-</head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="/" class="logo"><img src="../images/logo.png" alt="Работыш"></a>
-      <nav class="nav-main">
-        <a class="btn" href="/">На главную</a>
-      </nav>
-    </div>
-  </header>
+// ===== Упрощённая галерея Вселенной =====
+// без кликов, без описаний, без отделов — только поиск и сортировка
 
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <h1>Вселенная Работышей</h1>
-        <p class="lead">Коллекция каноничных и фанатских Работышей — от офисных героев до самых неожиданных интерпретаций.</p>
+const DATA_URL = '../data/characters.json';
+
+// резервные данные на случай отсутствия JSON
+const FALLBACK = [
+  { name: 'Работыш',        image: 'rabotysh',        type: 'canon',    created: '2024-01-01' },
+  { name: 'Работышка',      image: 'rabotyshka',      type: 'canon',    created: '2024-03-15' },
+  { name: 'Работыш-курьер', image: 'rabotysh-kurier', type: 'fan',      created: '2024-07-10' }
+];
+
+const state = { all: [], view: [], sort: 'new' };
+
+/* ---------- utils ---------- */
+function preferImagesPath(p){
+  if (!p) return '';
+  if (/^https?:\/\//i.test(p)) return p;
+  if (p.startsWith('../')) return p;
+  if (p.startsWith('images/')) return '../' + p;
+  if (p.startsWith('/images/')) return '..' + p;
+  return '../images/' + p;
+}
+
+// умеет работать с именем без расширения и с любым из .webp/.png/.jpg
+function buildSources(baseOrPath){
+  let base = String(baseOrPath || '').trim();
+  if (!base) return [];
+  // если уже полный путь с расширением — вернём кандидатов от него
+  if (/\.(webp|png|jpe?g)$/i.test(base)) {
+    base = base.replace(/\.(webp|png|jpe?g)$/i, '');
+  }
+  return [
+    preferImagesPath(base + '.webp'),
+    preferImagesPath(base + '.png'),
+    preferImagesPath(base + '.jpg'),
+    preferImagesPath(base + '.jpeg')
+  ];
+}
+
+function parseCreated(v){
+  if (v == null) return 0;
+  // поддержим ISO-строку, unix (сек/мс), число
+  if (typeof v === 'number') {
+    return v > 1e12 ? v : v*1000; // сек → мс
+  }
+  const d = new Date(v);
+  return isNaN(d.getTime()) ? 0 : d.getTime();
+}
+
+// нормализация записи персонажа
+function normalize(ch){
+  const name = ch.name || 'Без имени';
+  const imageBase = ch.thumb || ch.image || ch.img || name.toLowerCase().replace(/\s+/g,'-');
+  const created = parseCreated(ch.created || ch.date || ch.added || ch.createdAt || ch.updatedAt);
+  return {
+    name,
+    type: (ch.type || '').toLowerCase(), // не отображаем, но оставим для будущего
+    created,
+    sources: buildSources(imageBase)
+  };
+}
+
+/* ---------- data load ---------- */
+async function loadData(){
+  try{
+    const res = await fetch(DATA_URL, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const json = await res.json();
+    const arr = Array.isArray(json) ? json : (json.characters || []);
+    if (!arr.length) throw new Error('JSON пуст');
+    return arr.map(normalize);
+  }catch(e){
+    console.warn('Не удалось загрузить JSON, использую резерв:', e.message);
+    return FALLBACK.map(normalize);
+  }
+}
+
+/* ---------- render ---------- */
+function render(){
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('empty');
+
+  grid.innerHTML = '';
+  if (!state.view.length){
+    empty.hidden = false;
+    empty.textContent = 'Ничего не найдено.';
+    return;
+  }
+  empty.hidden = true;
+
+  state.view.forEach((ch) => {
+    const [first, ...fallbacks] = ch.sources;
+    const onerr = fallbackChain(fallbacks);
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.innerHTML = `
+      <img class="thumb" src="${first}" alt="${ch.name}" loading="lazy" decoding="async" onerror="${onerr}">
+      <div class="card-body">
+        <h3>${ch.name}</h3>
       </div>
-    </section>
+    `;
+    grid.appendChild(card);
+  });
+}
 
-    <!-- ФИЛЬТРЫ -->
-    <section id="filters" class="filters">
-      <div class="container">
-        <div class="filters-row">
-          <div class="search">
-            <input id="q" type="search" placeholder="Поиск по имени, тегам, описанию…">
-          </div>
-          <div class="selects">
-            <select id="f-dept">
-              <option value="">Все отделы</option>
-              <option value="office">Офис</option>
-              <option value="factory">Завод</option>
-              <option value="delivery">Доставка</option>
-              <option value="med">Медицина</option>
-              <option value="freelance">Фриланс</option>
-              <option value="other">Прочее</option>
-            </select>
-            <select id="f-type">
-              <option value="">Все типы</option>
-              <option value="canon">Канон</option>
-              <option value="fan">Фан</option>
-            </select>
-          </div>
-          <button id="reset" class="btn btn-quiet" type="button">Сбросить</button>
-        </div>
-      </div>
-    </section>
+// onerror: пробуем следующий формат → заглушка
+function fallbackChain(fallbacks){
+  if (!fallbacks.length) return "this.onerror=null; this.src='../images/placeholder.webp'";
+  const js = fallbacks.map(p => `this.onerror=null; this.src='${p}'`).join('; ');
+  return js + `; this.onerror=null; this.src='../images/placeholder.webp'`;
+}
 
-    <!-- ГАЛЕРЕЯ -->
-    <section id="gallery" class="gallery">
-      <div class="container">
-        <div id="grid" class="grid" aria-live="polite"></div>
-        <div id="empty" class="empty" hidden>Здесь пока пусто.</div>
-      </div>
-    </section>
+/* ---------- controls ---------- */
+function applyFilters(){
+  const q = (document.getElementById('q')?.value || '').toLowerCase().trim();
 
-    <!-- О ПРОЕКТЕ -->
-    <section id="about" class="about">
-      <div class="container">
-        <h2>О проекте</h2>
-        <p>Работыш — кот, который устал, но всё ещё делает вид, что работает. Этот сайт собирает канон и фан-версии персонажей.</p>
-      </div>
-    </section>
-  </main>
+  // поиск только по имени
+  let list = state.all.filter(ch => !q || ch.name.toLowerCase().includes(q));
 
-  <footer class="footer">
-    <div class="container footer-links">
-      <a href="https://vk.com/rabotysh" target="_blank" rel="noopener">
-        <img src="../images/vk.png" alt="VK" class="icon" width="32" height="32">
-      </a>
-      <a href="https://www.tiktok.com/@rabotysh" target="_blank" rel="noopener">
-        <img src="../images/tiktok.png" alt="TikTok" class="icon" width="32" height="32">
-      </a>
-    </div>
-  </footer>
+  // сортировка
+  if (state.sort === 'name') {
+    list.sort((a,b) => a.name.localeCompare(b.name, 'ru'));
+  } else {
+    // по новизне — по полю created (большее новее), если его нет — без изменений
+    list.sort((a,b) => (b.created||0) - (a.created||0));
+  }
 
-  <!-- МОДАЛКА -->
-  <dialog id="modal" class="rb-modal">
-    <button id="m-close" class="rb-modal__close" aria-label="Закрыть">✕</button>
-    <div class="rb-modal__body">
-      <div class="rb-modal__media"><img id="m-img" alt=""></div>
-      <div class="rb-modal__meta">
-        <h3 id="m-name"></h3>
-        <p id="m-desc" class="muted"></p>
-        <div class="meta">
-          <span class="chip" id="m-dept"></span>
-          <span class="chip" id="m-type"></span>
-        </div>
-        <div id="m-links" class="meta" style="margin-top:8px;"></div>
-      </div>
-    </div>
-  </dialog>
+  state.view = list;
+  render();
+}
 
-  <script src="app.js"></script>
-</body>
-</html>
+function wireUI(){
+  const q = document.getElementById('q');
+  const sort = document.getElementById('sort-by');
+  const reset = document.getElementById('reset');
+
+  q?.addEventListener('input', applyFilters);
+  sort?.addEventListener('change', () => { state.sort = sort.value; applyFilters(); });
+  reset?.addEventListener('click', () => {
+    if (q) q.value = '';
+    if (sort) sort.value = 'new';
+    state.sort = 'new';
+    applyFilters();
+  });
+}
+
+/* ---------- start ---------- */
+(async function init(){
+  state.all = await loadData();
+  state.sort = 'new';
+  applyFilters();
+  wireUI();
+})();
