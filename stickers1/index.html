@@ -6,33 +6,18 @@
   <title>Коллекционные стикеры — Серия 1</title>
   <meta name="description" content="Коллекционные стикеры Работыш — Серия 1">
   <meta name="theme-color" content="#F4EDE4">
-  <link rel="stylesheet" href="../styles.css?v=4">
+  <link rel="stylesheet" href="../styles.css?v=5">
   <style>
-    .poster-wrap {
-      padding: 32px 0 48px;
+    .poster-wrap{padding:32px 0 48px}
+    .poster{
+      display:block;max-width:960px;width:100%;height:auto;margin:0 auto;
+      background:#fff;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.06)
     }
-    .poster {
-      display: block;
-      max-width: 960px;
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 10px 24px rgba(0,0,0,.06);
-    }
-    .links {
-      margin-top: 20px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+    .links{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
   </style>
 </head>
-
 <body>
-  <!-- 🧩 Шапка -->
+  <!-- шапка: логотип + На главную (синяя) -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="logo"><img src="../images/logo.png" alt="Работыш"></a>
@@ -42,7 +27,6 @@
     </div>
   </header>
 
-  <!-- 📦 Контент -->
   <main>
     <section class="hero">
       <div class="container hero-inner" style="text-align:center;max-width:860px">
@@ -53,12 +37,11 @@
 
     <section class="poster-wrap">
       <div class="container">
+        <!-- постер из этой папки -->
         <img class="poster" src="stickers1-full.jpg" alt="Стикеры Работыш — Серия 1">
         <div class="links">
-          <a class="btn" href="../universe/">Вселенная Работышей</a>
           <a class="btn btn-special" href="stickers1-full.jpg" download>Скачать JPG</a>
-          <a class="btn btn-quiet" href="#" target="_blank" rel="noopener">Пост ВК</a>
-          <a class="btn btn-quiet" href="#" target="_blank" rel="noopener">Магазин Ozon</a>
+          <a class="btn" href="https://ozon.ru/t/a5udR8C" target="_blank" rel="noopener">Купить на Ozon</a>
         </div>
       </div>
     </section>
@@ -66,10 +49,7 @@
     <section class="about">
       <div class="container">
         <h2>О серии</h2>
-        <p class="muted">
-          Серия 1 — стартовая подборка персонажей Работыша.  
-          Каждый стикер — часть вселенной, которую можно собирать, обменивать и дарить.
-        </p>
+        <p class="muted">Серия 1 — стартовая подборка персонажей. Можно распечатать, собрать, подарить.</p>
       </div>
     </section>
   </main>
