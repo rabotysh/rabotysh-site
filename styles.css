@@ -1,5 +1,6 @@
 :root{
-  --bg:#F4EDE4; --card:#fff; --text:#2B2F33; --muted:#6C7177; --accent:#2D5BFF;
+  --bg:#F4EDE4; --card:#fff; --text:#2B2F33; --muted:#6C7177;
+  --accent:#4A68A4; /* ← новый синий */
   --radius:18px; --shadow:0 10px 24px rgba(0,0,0,.06);
 }
 
@@ -24,13 +25,26 @@ body{
 .logo img{height:42px;width:auto;display:block}
 
 /* hero */
-.hero{padding:56px 0;background:radial-gradient(1000px 400px at 50% -100px,rgba(45,91,255,.08),transparent)}
+.hero{padding:56px 0;background:radial-gradient(1000px 400px at 50% -100px,rgba(74,104,164,.10),transparent)}
 .hero h1{font-size:42px;margin:0 0 8px}
 .lead{color:var(--muted)}
 .hero-actions{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
-.btn{background:var(--accent);color:#fff;border:none;border-radius:12px;padding:10px 14px;font-weight:600;text-decoration:none}
+
+/* primary buttons (синие) */
+.btn{
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  padding:10px 14px;
+  font-weight:600;
+  text-decoration:none;
+}
 .btn:hover{opacity:.9}
-.btn-special{background:#C6A869}
+
+/* quiet / special */
+.btn-quiet{background:#e9eefb;color:#1d2f8a}
+.btn-special{background:#C6A869;color:#fff}
 
 /* filters & pills (используются на /universe) */
 .filters{padding:20px 0}
