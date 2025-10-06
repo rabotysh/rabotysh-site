@@ -1,201 +1,104 @@
-// ===== Вселенная Работышей — устойчивый рендер (под WebP) =====
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Вселенная Работышей</title>
+  <meta name="theme-color" content="#F4EDE4">
+  <script src="../version.js"></script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo"><img src="../images/logo.png" alt="Работыш"></a>
+      <nav class="nav-main">
+        <a class="btn" href="/">На главную</a>
+      </nav>
+    </div>
+  </header>
 
-// 1) Путь к JSON (если будет)
-const DATA_URL = '../data/characters.json';
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Вселенная Работышей</h1>
+        <p class="lead">Коллекция каноничных и фанатских Работышей — от офисных героев до самых неожиданных интерпретаций.</p>
+      </div>
+    </section>
 
-// 2) РЕЗЕРВНЫЕ ДАННЫЕ
-const FALLBACK = [
-  {
-    name: 'Работыш',
-    description: 'Коричневый кот в белой рубашке и синем галстуке — символ офисной усталости.',
-    dept: 'office',
-    type: 'canon',
-    image: 'rabotysh.webp'
-  },
-  {
-    name: 'Работышка',
-    description: 'Светлый кот с розовым галстуком. Амбициозен и энергичен.',
-    dept: 'office',
-    type: 'canon',
-    image: 'rabotyshka.webp'
-  },
-  {
-    name: 'Работыш-курьер',
-    description: 'В жёлтом жилете, носит посылки даже в дождь.',
-    dept: 'delivery',
-    type: 'fan',
-    image: 'rabotysh-kurier.webp'
-  }
-];
-
-// ===== УТИЛИТЫ =====
-function buildImgSrc(input) {
-  if (!input) return '';
-  let p = String(input).trim();
-
-  // Абсолютные URL оставляем
-  if (/^https?:\/\//i.test(p)) return p;
-
-  // Уже с ../ — оставляем
-  if (p.startsWith('../')) return p;
-
-  // Если явно указано .png — используем как есть
-  if (p.endsWith('.png')) return '../images/' + p;
-
-  // Добавляем .webp, если нет расширения
-  if (!/\.(webp|png|jpg|jpeg)$/i.test(p)) p += '.webp';
-
-  // Если начинается с images/
-  if (p.startsWith('images/')) return '../' + p;
-
-  return '../images/' + p;
-}
-
-function normalize(ch) {
-  return {
-    name: ch.name || 'Без имени',
-    description: ch.description || ch.desc || '',
-    dept: (ch.dept || ch.department || '').trim(),
-    type: (ch.type || '').trim(),
-    image: buildImgSrc(ch.thumb || ch.image || ch.img || '')
-  };
-}
-
-// ====== ЗАГРУЗКА ======
-async function tryLoadJson() {
-  try {
-    const res = await fetch(DATA_URL, { cache: 'no-store' });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const raw = await res.json();
-    const arr = Array.isArray(raw) ? raw : (raw.characters || []);
-    if (!arr || !arr.length) throw new Error('JSON пуст');
-    return arr.map(normalize);
-  } catch (e) {
-    console.warn('Не удалось загрузить JSON, использую резервные данные:', e.message);
-    return FALLBACK.map(normalize);
-  }
-}
-
-// ====== РЕНДЕР ======
-const state = { all: [], view: [] };
-
-function chip(t) { return t ? `<span class="chip">${t}</span>` : ''; }
-
-function render() {
-  const grid = document.getElementById('grid');
-  const empty = document.getElementById('empty');
-  if (!grid) return;
-
-  grid.innerHTML = '';
-  if (!state.view.length) {
-    if (empty) {
-      empty.hidden = false;
-      empty.textContent = 'Здесь пока пусто.';
-    }
-    return;
-  }
-  if (empty) empty.hidden = true;
-
-  state.view.forEach((ch, i) => {
-    const el = document.createElement('article');
-    el.className = 'card';
-    el.dataset.idx = String(i);
-    el.innerHTML = `
-      <img class="thumb" src="${ch.image}" alt="${ch.name}" loading="lazy" decoding="async"
-           onerror="this.onerror=null;this.src='../images/placeholder.webp';">
-      <div class="card-body">
-        <h3>${ch.name}</h3>
-        <p class="desc">${ch.description}</p>
-        <div class="meta">
-          ${chip(mapDept(ch.dept))} ${chip(mapType(ch.type))}
+    <!-- ФИЛЬТРЫ -->
+    <section id="filters" class="filters">
+      <div class="container">
+        <div class="filters-row">
+          <div class="search">
+            <input id="q" type="search" placeholder="Поиск по имени, тегам, описанию…">
+          </div>
+          <div class="selects">
+            <select id="f-dept">
+              <option value="">Все отделы</option>
+              <option value="office">Офис</option>
+              <option value="factory">Завод</option>
+              <option value="delivery">Доставка</option>
+              <option value="med">Медицина</option>
+              <option value="freelance">Фриланс</option>
+              <option value="other">Прочее</option>
+            </select>
+            <select id="f-type">
+              <option value="">Все типы</option>
+              <option value="canon">Канон</option>
+              <option value="fan">Фан</option>
+            </select>
+          </div>
+          <button id="reset" class="btn btn-quiet" type="button">Сбросить</button>
         </div>
       </div>
-    `;
-    grid.appendChild(el);
-  });
-}
+    </section>
 
-function mapDept(d) {
-  switch ((d||'').toLowerCase()) {
-    case 'office': return 'Офис';
-    case 'factory': return 'Завод';
-    case 'delivery': return 'Доставка';
-    case 'med': return 'Медицина';
-    case 'freelance': return 'Фриланс';
-    case 'other': return 'Прочее';
-    default: return d;
-  }
-}
-function mapType(t) {
-  switch ((t||'').toLowerCase()) {
-    case 'canon': return 'Канон';
-    case 'fan':
-    case 'fanart': return 'Фан';
-    default: return t;
-  }
-}
+    <!-- ГАЛЕРЕЯ -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <div id="grid" class="grid" aria-live="polite"></div>
+        <div id="empty" class="empty" hidden>Здесь пока пусто.</div>
+      </div>
+    </section>
 
-// ====== ФИЛЬТРЫ + МОДАЛКА ======
-function wire() {
-  const q = document.getElementById('q');
-  const fDept = document.getElementById('f-dept');
-  const fType = document.getElementById('f-type');
-  const reset = document.getElementById('reset');
+    <!-- О ПРОЕКТЕ -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2>О проекте</h2>
+        <p>Работыш — кот, который устал, но всё ещё делает вид, что работает. Этот сайт собирает канон и фан-версии персонажей.</p>
+      </div>
+    </section>
+  </main>
 
-  const apply = () => {
-    const text = (q?.value || '').toLowerCase().trim();
-    const dept = fDept?.value || '';
-    const type = fType?.value || '';
-    state.view = state.all.filter(ch => {
-      const okText = !text || (ch.name + ' ' + ch.description).toLowerCase().includes(text);
-      const okDept = !dept || (ch.dept.toLowerCase() === dept.toLowerCase());
-      const okType = !type || (ch.type.toLowerCase() === type.toLowerCase());
-      return okText && okDept && okType;
-    });
-    render();
-  };
+  <footer class="footer">
+    <div class="container footer-links">
+      <a href="https://vk.com/rabotysh" target="_blank" rel="noopener">
+        <img src="../images/vk.png" alt="VK" class="icon" width="32" height="32">
+      </a>
+      <a href="https://www.tiktok.com/@rabotysh" target="_blank" rel="noopener">
+        <img src="../images/tiktok.png" alt="TikTok" class="icon" width="32" height="32">
+      </a>
+    </div>
+  </footer>
 
-  q?.addEventListener('input', apply);
-  fDept?.addEventListener('change', apply);
-  fType?.addEventListener('change', apply);
-  reset?.addEventListener('click', () => {
-    if (q) q.value = '';
-    if (fDept) fDept.value = '';
-    if (fType) fType.value = '';
-    state.view = state.all.slice();
-    render();
-  });
+  <!-- МОДАЛКА -->
+  <dialog id="modal" class="rb-modal">
+    <button id="m-close" class="rb-modal__close" aria-label="Закрыть">✕</button>
+    <div class="rb-modal__body">
+      <div class="rb-modal__media"><img id="m-img" alt=""></div>
+      <div class="rb-modal__meta">
+        <h3 id="m-name"></h3>
+        <p id="m-desc" class="muted"></p>
+        <div class="meta">
+          <span class="chip" id="m-dept"></span>
+          <span class="chip" id="m-type"></span>
+        </div>
+        <div id="m-links" class="meta" style="margin-top:8px;"></div>
+      </div>
+    </div>
+  </dialog>
 
-  // клики по карточкам
-  const grid = document.getElementById('grid');
-  const modal = document.getElementById('modal');
-  if (grid && modal) {
-    grid.addEventListener('click', (e) => {
-      const card = e.target.closest('.card');
-      if (!card) return;
-      const idx = Number(card.dataset.idx);
-      openModal(state.view[idx]);
-    });
-
-    document.getElementById('m-close')?.addEventListener('click', () => modal.close());
-  }
-}
-
-function openModal(ch) {
-  if (!ch) return;
-  const modal = document.getElementById('modal');
-  document.getElementById('m-img').src = ch.image || '';
-  document.getElementById('m-name').textContent = ch.name || '';
-  document.getElementById('m-desc').textContent = ch.description || '';
-  document.getElementById('m-dept').textContent = mapDept(ch.dept) || '';
-  document.getElementById('m-type').textContent = mapType(ch.type) || '';
-  modal.showModal();
-}
-
-// ====== СТАРТ ======
-(async function init(){
-  state.all = await tryLoadJson();
-  state.view = state.all.slice();
-  render();
-  wire();
-})();
+  <script src="app.js"></script>
+</body>
+</html>
