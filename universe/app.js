@@ -1,4 +1,4 @@
-// ===== Упрощённая галерея: поиск, сорт, фильтр по категории =====
+// ===== Упрощённая галерея: поиск, сортировка и фильтры =====
 
 const DATA_URL = '../data/characters.json';
 
@@ -8,7 +8,7 @@ const FALLBACK = [
   { name: 'Работыш-курьер', image: 'rabotysh-kurier', type: 'fan',   created: '2024-07-10' }
 ];
 
-const state = { all: [], view: [], sort: 'new', type: '' };
+const state = { all: [], view: [], sort: 'new', type: '', order: 'desc' };
 
 /* ---------- utils ---------- */
 function preferImagesPath(p){
@@ -22,37 +22,23 @@ function preferImagesPath(p){
 function buildSources(baseOrPath){
   let base = String(baseOrPath || '').trim();
   if (!base) return [];
-  // уберём расширение, если есть
   base = base.replace(/\.(webp|png|jpe?g)$/i, '');
   return [
     preferImagesPath(base + '.webp'),
     preferImagesPath(base + '.png'),
-    preferImagesPath(base + '.jpg'),
-    preferImagesPath(base + '.jpeg')
+    preferImagesPath(base + '.jpg')
   ];
 }
 function parseCreated(v){
   if (v == null) return 0;
-  if (typeof v === 'number') return v > 1e12 ? v : v*1000;
   const d = new Date(v); return isNaN(d.getTime()) ? 0 : d.getTime();
 }
-function mapType(t){
-  const k = (t||'').toLowerCase();
-  if (k === 'canon') return 'Канон';
-  if (k === 'fan' || k === 'fanart') return 'Фан';
-  return '';
-}
+function mapType(t){ return t === 'canon' ? 'Канон' : t === 'fan' ? 'Фан' : ''; }
 function normalizeType(t){
   const k = (t||'').toLowerCase();
   if (k === 'fanart') return 'fan';
-  if (k === 'canon' || k === 'fan') return k;
-  return ''; // неизвестное или пустое
-}
-function badgeHTML(type){
-  const label = mapType(type);
-  if (!label) return '';
-  const cls = type === 'canon' ? 'chip' : 'chip';
-  return `<span class="${cls}" style="margin-left:8px">${label}</span>`;
+  if (['canon','fan'].includes(k)) return k;
+  return '';
 }
 
 /* ---------- data load ---------- */
@@ -65,19 +51,18 @@ async function loadData(){
     if (!arr.length) throw new Error('JSON пуст');
     return arr.map(normalize);
   }catch(e){
-    console.warn('Не удалось загрузить JSON, использую резерв:', e.message);
+    console.warn('Ошибка загрузки JSON, резерв:', e.message);
     return FALLBACK.map(normalize);
   }
 }
-
 function normalize(ch){
   const name = ch.name || 'Без имени';
-  const imageBase = ch.thumb || ch.image || ch.img || name.toLowerCase().replace(/\s+/g,'-');
+  const img = ch.thumb || ch.image || ch.img || name.toLowerCase().replace(/\s+/g,'-');
   return {
     name,
     type: normalizeType(ch.type),
-    created: parseCreated(ch.created || ch.date || ch.added || ch.createdAt || ch.updatedAt),
-    sources: buildSources(imageBase)
+    created: parseCreated(ch.created || ch.date || ch.added),
+    sources: buildSources(img)
   };
 }
 
@@ -85,8 +70,8 @@ function normalize(ch){
 function render(){
   const grid = document.getElementById('grid');
   const empty = document.getElementById('empty');
-
   grid.innerHTML = '';
+
   if (!state.view.length){
     empty.hidden = false;
     empty.textContent = 'Ничего не найдено.';
@@ -94,42 +79,35 @@ function render(){
   }
   empty.hidden = true;
 
-  state.view.forEach((ch) => {
+  state.view.forEach(ch => {
     const [first, ...fallbacks] = ch.sources;
-    const onerr = fallbackChain(fallbacks);
     const card = document.createElement('article');
     card.className = 'card';
     card.innerHTML = `
-      <img class="thumb" src="${first}" alt="${ch.name}" loading="lazy" decoding="async" onerror="${onerr}">
+      <img class="thumb" src="${first}" alt="${ch.name}" loading="lazy" decoding="async">
       <div class="card-body">
-        <h3>${ch.name}${badgeHTML(ch.type)}</h3>
-      </div>
-    `;
+        <h3>${ch.name} <span class="chip">${mapType(ch.type)}</span></h3>
+      </div>`;
     grid.appendChild(card);
   });
-}
-
-function fallbackChain(fallbacks){
-  if (!fallbacks.length) return "this.onerror=null; this.src='../images/placeholder.webp'";
-  const js = fallbacks.map(p => `this.onerror=null; this.src='${p}'`).join('; ');
-  return js + `; this.onerror=null; this.src='../images/placeholder.webp'`;
 }
 
 /* ---------- filters ---------- */
 function applyFilters(){
   const q = (document.getElementById('q')?.value || '').toLowerCase().trim();
-  const type = state.type; // '' | 'canon' | 'fan'
+  const type = state.type;
 
   let list = state.all.filter(ch =>
     (!q || ch.name.toLowerCase().includes(q)) &&
     (!type || ch.type === type)
   );
 
-  if (state.sort === 'name') {
-    list.sort((a,b) => a.name.localeCompare(b.name, 'ru'));
-  } else {
-    list.sort((a,b) => (b.created||0) - (a.created||0));
-  }
+  // сортировка
+  const dir = state.order === 'asc' ? 1 : -1;
+  if (state.sort === 'name')
+    list.sort((a,b) => a.name.localeCompare(b.name,'ru') * dir);
+  else
+    list.sort((a,b) => ((a.created||0)-(b.created||0)) * -dir);
 
   state.view = list;
   render();
@@ -140,25 +118,33 @@ function wireUI(){
   const sort = document.getElementById('sort-by');
   const typeSel = document.getElementById('type-by');
   const reset = document.getElementById('reset');
+  const sortDirBtn = document.getElementById('sort-dir');
 
   q?.addEventListener('input', applyFilters);
   sort?.addEventListener('change', () => { state.sort = sort.value; applyFilters(); });
   typeSel?.addEventListener('change', () => { state.type = typeSel.value; applyFilters(); });
+
+  sortDirBtn?.addEventListener('click', () => {
+    state.order = (state.order === 'asc') ? 'desc' : 'asc';
+    sortDirBtn.textContent = (state.order === 'asc') ? '▲' : '▼';
+    applyFilters();
+  });
+
   reset?.addEventListener('click', () => {
-    if (q) q.value = '';
-    if (sort) sort.value = 'new';
-    if (typeSel) typeSel.value = '';
+    q.value = '';
+    sort.value = 'new';
+    typeSel.value = '';
     state.sort = 'new';
     state.type = '';
+    state.order = 'desc';
+    sortDirBtn.textContent = '▼';
     applyFilters();
   });
 }
 
-/* ---------- start ---------- */
+/* ---------- init ---------- */
 (async function init(){
   state.all = await loadData();
-  state.sort = 'new';
-  state.type = '';
   applyFilters();
   wireUI();
 })();
