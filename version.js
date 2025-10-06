@@ -1,12 +1,12 @@
-// SAFE cache-bust: без document.write, просто добавляем <link> в <head>
-(function () {
-  var d = new Date();
-  var v = d.getFullYear().toString()
-        + ('0' + (d.getMonth()+1)).slice(-2)
-        + ('0' + d.getDate()).slice(-2)
-        + ('0' + d.getHours()).slice(-2);
-  var link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = 'styles.css?v=' + v;   // важно: без ведущего /
-  document.head.appendChild(link);
-})();
+// version.js — автоматическая подстановка версии по дате
+const stamp = new Date(document.lastModified).getTime();
+
+// Найдём все <link> и <script>, где явно не указана версия
+document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
+  const attr = el.tagName === 'LINK' ? 'href' : 'src';
+  let url = el.getAttribute(attr);
+  if (!url) return;
+  if (!url.includes('?v=')) {
+    el.setAttribute(attr, `${url}?v=${stamp}`);
+  }
+});
