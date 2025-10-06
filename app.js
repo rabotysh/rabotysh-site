@@ -43,20 +43,39 @@ function formatDept(d){return({office:'Офис',factory:'Завод',delivery:'
 function formatType(t){return({canon:'Канон',fanart:'Фан'}[t]||'—');}
 
 function makeCard(ch){
-  const el=document.createElement('a');
-  el.href='#';el.className='card';el.innerHTML=`
-  <img class="thumb" src="${ch.thumb||ch.image}" alt="${ch.name}">
-  <div class="card-body">
-    <h3>${ch.name}</h3>
-    <p class="desc">${ch.description}</p>
-    <div class="meta">
-      <span class="chip">${formatDept(ch.department)}</span>
-      <span class="chip">${formatType(ch.type)}</span>
+  const el = document.createElement('a');
+  el.href = '#';
+  el.className = 'card';
+
+  // Картинка превью
+  const img = document.createElement('img');
+  img.className = 'thumb';
+  img.src = ch.thumb || ch.image;
+  img.alt = ch.name;
+  img.loading = 'lazy';
+  img.decoding = 'async';
+  img.fetchPriority = 'low';
+  // На мобиле ~50% ширины, на планшете ~33%, на десктопе ~25%
+  img.sizes = '(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw';
+
+  el.appendChild(img);
+
+  // Текстовая часть
+  el.insertAdjacentHTML('beforeend', `
+    <div class="card-body">
+      <h3>${ch.name}</h3>
+      <p class="desc">${ch.description}</p>
+      <div class="meta">
+        <span class="chip">${formatDept(ch.department)}</span>
+        <span class="chip">${formatType(ch.type)}</span>
+      </div>
     </div>
-  </div>`;
-  el.addEventListener('click',e=>{e.preventDefault();openModal(ch.id);});
+  `);
+
+  el.addEventListener('click', e => { e.preventDefault(); openModal(ch.id); });
   return el;
 }
+
 
 function render(){
   grid.innerHTML='';
