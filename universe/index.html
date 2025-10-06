@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+  <!-- ШАПКА -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="logo"><img src="../images/logo.png" alt="Работыш"></a>
@@ -19,6 +20,7 @@
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-inner">
         <h1>Вселенная Работышей</h1>
@@ -26,27 +28,17 @@
       </div>
     </section>
 
-    <!-- ФИЛЬТРЫ -->
+    <!-- ФИЛЬТРЫ/СОРТИРОВКА -->
     <section id="filters" class="filters">
       <div class="container">
         <div class="filters-row">
           <div class="search">
-            <input id="q" type="search" placeholder="Поиск по имени, тегам, описанию…">
+            <input id="q" type="search" placeholder="Поиск по имени…">
           </div>
           <div class="selects">
-            <select id="f-dept">
-              <option value="">Все отделы</option>
-              <option value="office">Офис</option>
-              <option value="factory">Завод</option>
-              <option value="delivery">Доставка</option>
-              <option value="med">Медицина</option>
-              <option value="freelance">Фриланс</option>
-              <option value="other">Прочее</option>
-            </select>
-            <select id="f-type">
-              <option value="">Все типы</option>
-              <option value="canon">Канон</option>
-              <option value="fan">Фан</option>
+            <select id="sort-by" aria-label="Сортировка">
+              <option value="new">По новизне</option>
+              <option value="name">По алфавиту</option>
             </select>
           </div>
           <button id="reset" class="btn btn-quiet" type="button">Сбросить</button>
@@ -71,6 +63,7 @@
     </section>
   </main>
 
+  <!-- ФУТЕР -->
   <footer class="footer">
     <div class="container footer-links">
       <a href="https://vk.com/rabotysh" target="_blank" rel="noopener">
@@ -82,23 +75,16 @@
     </div>
   </footer>
 
-  <!-- МОДАЛКА -->
-  <dialog id="modal" class="rb-modal">
-    <button id="m-close" class="rb-modal__close" aria-label="Закрыть">✕</button>
-    <div class="rb-modal__body">
-      <div class="rb-modal__media"><img id="m-img" alt=""></div>
-      <div class="rb-modal__meta">
-        <h3 id="m-name"></h3>
-        <p id="m-desc" class="muted"></p>
-        <div class="meta">
-          <span class="chip" id="m-dept"></span>
-          <span class="chip" id="m-type"></span>
-        </div>
-        <div id="m-links" class="meta" style="margin-top:8px;"></div>
-      </div>
-    </div>
-  </dialog>
-
-  <script src="app.js"></script>
+  <!-- ГАЛЕРЕЯ -->
+  <script src="app.js?v=1"></script>
+  <script>
+    // принудительно ломаем кеш, чтобы правки сразу подхватывались
+    (function bump(){
+      const el = document.currentScript.previousElementSibling;
+      if (el && el.tagName === 'SCRIPT' && el.src.indexOf('?v=') === -1) {
+        el.src = el.src + '?v=' + Math.floor(Math.random()*100000);
+      }
+    })();
+  </script>
 </body>
 </html>
