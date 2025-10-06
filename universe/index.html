@@ -7,25 +7,26 @@
   <meta name="theme-color" content="#F4EDE4">
   <script src="../version.js"></script>
   <link rel="stylesheet" href="../styles.css">
+
+  <!-- Локальные стили для бейджа -->
   <style>
-    .sort-controls {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    .thumb-wrap{ position:relative; }
+    .badge{
+      position:absolute; top:8px; right:8px;
+      background:#4A68A4; /* по умолчанию */
+      color:#fff;
+      border-radius:999px;
+      padding:4px 8px;
+      font-size:11px;       /* меньше, чем заголовок */
+      font-weight:700;
+      line-height:1;
+      box-shadow:0 4px 10px rgba(0,0,0,.12);
+      pointer-events:none;  /* не перехватывает клики */
+      user-select:none;
     }
-    .sort-toggle {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 18px;
-      padding: 4px 10px;
-      line-height: 1;
-      transition: background 0.15s;
-    }
-    .sort-toggle:hover {
-      background: #eee;
-    }
+    .badge--fan{ background:#C6A869; }  /* Фан */
+    .card .thumb{ display:block; }      /* на всякий случай */
+    .card h3{ display:block; }          /* бейдж не рядом с именем */
   </style>
 </head>
 <body>
@@ -60,12 +61,13 @@
               <option value="fan">Фан</option>
             </select>
 
-            <div class="sort-controls">
+            <div class="sort-controls" style="display:flex;align-items:center;gap:6px">
               <select id="sort-by" aria-label="Сортировка">
                 <option value="new">По новизне</option>
                 <option value="name">По алфавиту</option>
               </select>
-              <button id="sort-dir" class="sort-toggle" title="Порядок сортировки">▼</button>
+              <button id="sort-dir" class="sort-toggle" title="Порядок сортировки"
+                      style="background:#fff;border:1px solid #ddd;border-radius:8px;cursor:pointer;font-size:18px;padding:4px 10px;line-height:1">▼</button>
             </div>
           </div>
 
@@ -100,6 +102,6 @@
     </div>
   </footer>
 
-  <script src="app.js?v=2"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
