@@ -8,25 +8,61 @@
   <script src="../version.js"></script>
   <link rel="stylesheet" href="../styles.css">
 
-  <!-- Локальные стили для бейджа -->
+  <!-- ДОБАВЛЕНО: аккуратные стили панели фильтров и бейджа -->
   <style>
+    /* единая высота контролов */
+    :root { --ctrl-h: 42px; }
+
+    .filters-bar{
+      display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+      background:#fff; border:1px solid #e9e3da; border-radius:12px;
+      padding:10px 12px; box-shadow:0 6px 16px rgba(0,0,0,.05);
+    }
+    .filters-left{
+      display:flex; align-items:center; gap:12px;
+      flex:1 1 420px; min-width:260px;
+    }
+    .filters-right{
+      display:flex; align-items:center; gap:10px;
+      margin-left:auto; flex:0 1 auto;
+    }
+    .filters-bar input[type="search"],
+    .filters-bar select,
+    .filters-bar .btn,
+    .sort-toggle{
+      height:var(--ctrl-h);
+      padding:0 12px;
+      border-radius:10px;
+    }
+    .filters-bar input[type="search"]{
+      flex:1 1 280px; min-width:200px; border:1px solid #ddd; background:#fff;
+    }
+    .filters-bar select{ border:1px solid #ddd; background:#fff; }
+    .btn{ line-height:var(--ctrl-h); padding:0 14px; }
+
+    .sort-controls{ display:flex; align-items:center; gap:6px; }
+    .sort-toggle{
+      background:#fff; border:1px solid #ddd; cursor:pointer;
+      font-size:18px; line-height:1; padding:4px 10px;
+    }
+    .sort-toggle:hover{ background:#f3f2ef; }
+
+    /* бейдж Канон/Фан */
     .thumb-wrap{ position:relative; }
     .badge{
       position:absolute; top:8px; right:8px;
-      background:#4A68A4; /* по умолчанию */
-      color:#fff;
-      border-radius:999px;
-      padding:4px 8px;
-      font-size:11px;       /* меньше, чем заголовок */
-      font-weight:700;
-      line-height:1;
-      box-shadow:0 4px 10px rgba(0,0,0,.12);
-      pointer-events:none;  /* не перехватывает клики */
-      user-select:none;
+      background:#4A68A4; color:#fff; border-radius:999px;
+      padding:4px 8px; font-size:11px; font-weight:700; line-height:1;
+      box-shadow:0 4px 10px rgba(0,0,0,.12); pointer-events:none; user-select:none;
     }
-    .badge--fan{ background:#C6A869; }  /* Фан */
-    .card .thumb{ display:block; }      /* на всякий случай */
-    .card h3{ display:block; }          /* бейдж не рядом с именем */
+    .badge--fan{ background:#C6A869; }
+
+    /* адаптив: на мобиле элементы станут в 2–3 строки, но ровно */
+    @media (max-width: 720px){
+      .filters-left{ flex:1 1 100%; }
+      .filters-right{ margin-left:0; flex:1 1 100%; justify-content:space-between; }
+      .filters-bar input[type="search"]{ flex:1 1 100%; }
+    }
   </style>
 </head>
 <body>
@@ -47,31 +83,31 @@
       </div>
     </section>
 
+    <!-- ПАНЕЛЬ ФИЛЬТРОВ: аккуратно выровнена -->
     <section id="filters" class="filters">
       <div class="container">
-        <div class="filters-row">
-          <div class="search">
+        <div class="filters-bar">
+          <div class="filters-left">
             <input id="q" type="search" placeholder="Поиск по имени…">
           </div>
 
-          <div class="selects">
+          <div class="filters-right">
             <select id="type-by" aria-label="Категория">
               <option value="">Все категории</option>
               <option value="canon">Канон</option>
               <option value="fan">Фан</option>
             </select>
 
-            <div class="sort-controls" style="display:flex;align-items:center;gap:6px">
+            <div class="sort-controls">
               <select id="sort-by" aria-label="Сортировка">
                 <option value="new">По новизне</option>
                 <option value="name">По алфавиту</option>
               </select>
-              <button id="sort-dir" class="sort-toggle" title="Порядок сортировки"
-                      style="background:#fff;border:1px solid #ddd;border-radius:8px;cursor:pointer;font-size:18px;padding:4px 10px;line-height:1">▼</button>
+              <button id="sort-dir" class="sort-toggle" title="Порядок сортировки">▼</button>
             </div>
-          </div>
 
-          <button id="reset" class="btn btn-quiet" type="button">Сбросить</button>
+            <button id="reset" class="btn btn-quiet" type="button">Сбросить</button>
+          </div>
         </div>
       </div>
     </section>
