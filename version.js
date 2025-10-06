@@ -1,7 +1,7 @@
-// version.js — автоматическая подстановка версии по дате
+// version.js — автоматическая подстановка версии по дате последнего изменения страницы
 const stamp = new Date(document.lastModified).getTime();
 
-// Найдём все <link> и <script>, где явно не указана версия
+// Добавляем параметр ?v=timestamp ко всем CSS и JS без явной версии
 document.querySelectorAll('link[rel="stylesheet"], script[src]').forEach(el => {
   const attr = el.tagName === 'LINK' ? 'href' : 'src';
   let url = el.getAttribute(attr);
