@@ -198,3 +198,16 @@ ar(--muted)}
 @media (max-width: 380px){
   .brand-text span{ display:none; } /* можно скрыть подзаголовок, чтобы всё влезало */
 }
+/* Мобильные отступы в hero */
+@media (max-width: 640px){
+  .hero{ padding: 28px 0; }
+  .hero h1{ font-size: 30px; }
+  .lead{ font-size: 14px; }
+  .hero-actions{ gap: 8px; }
+}
+
+/* Сетка карточек на узких экранах */
+@media (max-width: 420px){
+  .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .card{ border-radius: 16px; }
+}
