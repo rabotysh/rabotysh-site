@@ -3,35 +3,115 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Работыш — главная</title>
+  <title>Вселенная Работышей</title>
+  <meta name="description" content="Вселенная Работышей — цифровой каталог персонажей.">
   <meta name="theme-color" content="#F4EDE4">
-  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="../styles.css?v=1">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
-        <a href="/" class="logo"><img src="images/logo.png" alt="Работыш"></a>
-        <div class="brand-text"><strong>Работыш™</strong></div>
+        <a href="/" class="logo"><img src="../images/logo.png" alt="Работыш"></a>
+        <div class="brand-text">
+          <strong>Вселенная Работышей</strong>
+          <span>Цифровой каталог персонажей</span>
+        </div>
       </div>
       <nav class="nav-main">
-        <a class="nav-btn" href="universe/">Вселенная Работышей</a>
-        <a class="nav-btn special" href="stickers1/">🎨 Серия 1</a>
+        <a class="nav-btn" href="/">На главную</a>
+        <a class="nav-btn special" href="../stickers1/">🎨 Серия 1</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero">
-      <div class="container hero-inner" style="text-align:center;max-width:760px">
-        <h1>Работыш</h1>
-        <p class="lead">Выберите раздел:</p>
-        <div class="hero-actions" style="justify-content:center">
-          <a class="btn" href="universe/">Вселенная Работышей</a>
-          <a class="btn btn-special" href="stickers1/">🎨 Стикеры — Серия 1</a>
+      <div class="container hero-inner">
+        <h1>Вселенная Работышей</h1>
+        <p class="lead">Коллекция каноничных и фанатских Работышей — от офисных героев до самых неожиданных интерпретаций.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#" data-jump="gallery">Открыть галерею</a>
+          <a class="btn btn-quiet" href="#" data-jump="about">Подробнее</a>
         </div>
       </div>
     </section>
+
+    <!-- FILTERS -->
+    <section id="filters" class="filters">
+      <div class="container">
+        <div class="filters-row">
+          <div class="search">
+            <input id="q" type="search" placeholder="Поиск по имени, тегам, описанию…">
+          </div>
+          <div class="selects">
+            <select id="f-dept">
+              <option value="">Все отделы</option>
+              <option value="office">Офис</option>
+              <option value="factory">Завод</option>
+              <option value="delivery">Доставка</option>
+              <option value="med">Медицина</option>
+              <option value="freelance">Фриланс</option>
+              <option value="other">Прочее</option>
+            </select>
+            <select id="f-type">
+              <option value="">Все типы</option>
+              <option value="canon">Канон</option>
+              <option value="fanart">Фан</option>
+            </select>
+          </div>
+          <button id="reset" class="btn btn-quiet" type="button">Сбросить</button>
+        </div>
+
+        <div class="pills" aria-label="Быстрые разделы">
+          <button class="pill" data-dept="">Все</button>
+          <button class="pill" data-dept="office">🏢 Офис</button>
+          <button class="pill" data-dept="factory">⚙️ Завод</button>
+          <button class="pill" data-dept="delivery">🚚 Доставка</button>
+          <button class="pill" data-dept="med">🩺 Медицина</button>
+          <button class="pill" data-dept="freelance">💻 Фриланс</button>
+          <button class="pill" data-dept="other">🌴 Прочее</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <div id="grid" class="grid" aria-live="polite"></div>
+        <div id="empty" class="empty" hidden>Ничего не найдено. Возможно, этот Работыш в отпуске.</div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2>О проекте</h2>
+        <p>Работыш — кот, который устал, но всё ещё делает вид, что работает. Этот сайт собирает канон и фан-версии персонажей.</p>
+        <p class="muted">Автор: Степан Панов · VK: vk.com/rabotysh · Ozon: магазин Работыша</p>
+      </div>
+    </section>
   </main>
+
+  <!-- MODAL -->
+  <dialog id="modal" class="modal">
+    <button class="modal-close" aria-label="Закрыть">✕</button>
+    <div class="modal-body">
+      <div class="modal-media"><img id="m-img" alt=""></div>
+      <div class="modal-meta">
+        <h3 id="m-name"></h3>
+        <p id="m-desc"></p>
+        <div class="meta-rows">
+          <div class="meta-row"><span>Отдел:</span> <span id="m-dept"></span></div>
+          <div class="meta-row"><span>Тип:</span> <span id="m-type"></span></div>
+          <div class="meta-row" id="m-author-row"><span>Автор:</span> <span id="m-author"></span></div>
+          <div class="meta-row" id="m-links-row"><span>Ссылки:</span> <span id="m-links"></span></div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="app.js?v=1"></script>
 </body>
 </html>
