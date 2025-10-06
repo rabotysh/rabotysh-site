@@ -5,20 +5,135 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Вселенная Работышей</title>
 
+  <!-- 🌐 Мета -->
   <meta name="description" content="Вселенная Работышей — цифровой каталог персонажей. Коллекция каноничных и фанатских Работышей.">
-  <meta property="og:image" content="images/logo.png?v=2">
+  <meta property="og:image" content="images/logo.png?v=3">
 
-  <!-- CSS подключаем через авто-версионизатор -->
-  <script src="version.js"></script>
+  <!-- 🎨 Стили -->
+  <link rel="stylesheet" href="styles.css?v=3">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=2">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=2">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2">
-  <link rel="manifest" href="site.webmanifest?v=2">
+  <!-- 📱 Иконки -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=3">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=3">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3">
+  <link rel="manifest" href="site.webmanifest?v=3">
 </head>
 
 <body>
-  <!-- ШАПКА (класс совпадает с CSS: .site-header) -->
+  <!-- 🔹 ШАПКА -->
   <header class="site-header">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px">
-      <div cl
+      <div class="brand">
+        <a href="/" class="logo">
+          <img src="images/logo.png?v=3" alt="Работыш">
+        </a>
+        <div class="brand-text">
+          <strong>Вселенная Работышей</strong>
+          <span>Цифровой каталог персонажей</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#" data-jump="gallery">Все персонажи</a>
+        <a href="#" data-jump="filters">Фильтры</a>
+        <a href="#" data-jump="about">О проекте</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 🔹 ОСНОВНОЙ КОНТЕНТ -->
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Вселенная Работышей</h1>
+        <p class="lead">Коллекция каноничных и фанатских Работышей — от офисных героев до самых неожиданных интерпретаций.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#" data-jump="gallery">Открыть галерею</a>
+          <a class="btn btn-quiet" href="#" data-jump="about">Подробнее</a>
+          <a class="btn btn-special" href="stickers1/">🎨 Первая серия стикеров</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTERS -->
+    <section id="filters" class="filters">
+      <div class="container">
+        <div class="filters-row">
+          <div class="search">
+            <input id="q" type="search" placeholder="Поиск по имени, тегам, описанию…">
+          </div>
+          <div class="selects">
+            <select id="f-dept">
+              <option value="">Все отделы</option>
+              <option value="office">Офис</option>
+              <option value="factory">Завод</option>
+              <option value="delivery">Доставка</option>
+              <option value="med">Медицина</option>
+              <option value="freelance">Фриланс</option>
+              <option value="other">Другое</option>
+            </select>
+            <select id="f-type">
+              <option value="">Все типы</option>
+              <option value="canon">Канон</option>
+              <option value="fanart">Фан</option>
+            </select>
+          </div>
+          <button id="reset" class="btn btn-quiet">Сбросить</button>
+        </div>
+
+        <div class="pills" aria-label="Быстрые разделы">
+          <button class="pill" data-dept="">Все</button>
+          <button class="pill" data-dept="office">🏢 Офис</button>
+          <button class="pill" data-dept="factory">⚙️ Завод</button>
+          <button class="pill" data-dept="delivery">🚚 Доставка</button>
+          <button class="pill" data-dept="med">🩺 Медицина</button>
+          <button class="pill" data-dept="freelance">💻 Фриланс</button>
+          <button class="pill" data-dept="other">🌴 Прочее</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <div id="grid" class="grid" aria-live="polite"></div>
+        <div id="empty" class="empty" hidden>Ничего не найдено. Возможно, этот Работыш в отпуске.</div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2>О проекте</h2>
+        <p>
+          Работыш — кот, который устал, но всё ещё делает вид, что работает. Этот сайт собирает канон и фан-версии персонажей.
+          Прислать свою версию можно через наши соцсети.
+        </p>
+        <p class="muted">Автор: Степан Панов · VK: vk.com/rabotysh · Ozon: магазин Работыша</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 🔹 МОДАЛ -->
+  <dialog id="modal" class="modal">
+    <button class="modal-close" aria-label="Закрыть">✕</button>
+    <div class="modal-body">
+      <div class="modal-media"><img id="m-img" alt=""></div>
+      <div class="modal-meta">
+        <h3 id="m-name"></h3>
+        <p id="m-desc"></p>
+        <div class="meta-rows">
+          <div class="meta-row"><span>Отдел:</span> <span id="m-dept"></span></div>
+          <div class="meta-row"><span>Тип:</span> <span id="m-type"></span></div>
+          <div class="meta-row" id="m-author-row"><span>Автор:</span> <span id="m-author"></span></div>
+          <div class="meta-row" id="m-links-row"><span>Ссылки:</span> <span id="m-links"></span></div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ⚙️ СКРИПТ -->
+  <script src="app.js?v=3"></script>
+  <noscript>Для работы галереи нужен JavaScript.</noscript>
+</body>
+</html>
