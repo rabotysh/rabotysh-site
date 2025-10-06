@@ -2,15 +2,38 @@
   --bg:#F4EDE4; --card:#fff; --text:#2B2F33; --muted:#6C7177; --accent:#2D5BFF;
   --radius:18px; --shadow:0 10px 24px rgba(0,0,0,.06);
 }
+
+/* base */
 *{box-sizing:border-box}
 body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif}
 .container{max-width:1100px;margin:0 auto;padding:0 16px}
 
-.site-header{background:rgba(255,255,255,.6);backdrop-filter:blur(8px);position:sticky;top:0;border-bottom:1px solid #e9e3da;z-index:10}
-.site-header .container{display:flex;justify-content:space-between;align-items:center;padding:12px 16px}
-.nav a{color:var(--text);text-decoration:none;margin-left:14px}
-.nav a:hover{text-decoration:underline}
+/* ===== header (бренд + две кнопки) ===== */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(255,255,255,.7);
+  backdrop-filter:blur(8px) saturate(1.05);
+  border-bottom:1px solid #e9e3da;
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.logo{display:inline-flex;align-items:center;text-decoration:none}
+.logo img{height:42px;width:auto;max-width:180px;display:block;border-radius:6px;vertical-align:middle}
+.brand-text strong{display:block;font-size:20px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-text span{display:block;font-size:13px;color:var(--muted)}
 
+/* кнопки в шапке */
+.nav-main{display:flex;gap:12px;flex-wrap:wrap}
+.nav-btn{
+  background:#f5f3ef;color:#333;text-decoration:none;
+  padding:8px 14px;border-radius:12px;font-weight:500;font-size:15px;
+  transition:background .2s;
+}
+.nav-btn:hover{background:#e9e3da}
+.nav-btn.special{background:#d2a96e;color:#fff}
+.nav-btn.special:hover{background:#c89b57}
+
+/* ===== hero ===== */
 .hero{padding:56px 0;background:radial-gradient(1000px 400px at 50% -100px,rgba(45,91,255,.08),transparent)}
 .hero h1{font-family:"IBM Plex Serif",serif;font-size:42px;margin:0 0 8px}
 .lead{color:var(--muted);max-width:700px}
@@ -21,6 +44,7 @@ body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter
 .btn-special{background:#C6A869;color:#fff;border:none;border-radius:12px;padding:10px 14px;font-weight:600;text-decoration:none}
 .btn-special:hover{opacity:.9}
 
+/* ===== filters & pills (используется на /universe) ===== */
 .filters{padding:20px 0}
 .filters-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .search input,.selects select{padding:10px 12px;border-radius:12px;border:1px solid #ddd;background:#fff}
@@ -28,6 +52,7 @@ body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter
 .pill{background:#fff;border:1px solid #e6e2da;border-radius:999px;padding:8px 12px;cursor:pointer}
 .pill:hover{border-color:#ccc}
 
+/* ===== gallery (на /universe) ===== */
 .gallery{padding:20px 0 48px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
 .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:transform .15s ease}
@@ -39,175 +64,40 @@ body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter
 .meta{margin-top:8px;font-size:12px;color:#61656b;display:flex;gap:6px;flex-wrap:wrap}
 .meta .chip{background:#f1eee8;border:1px solid #e7e1d9;border-radius:8px;padding:2px 8px}
 
+/* ===== about ===== */
 .about{padding:40px 0;border-top:1px solid #e9e3da}
 .about h2{font-family:"IBM Plex Serif",serif;font-size:28px;margin-bottom:10px}
-.about .muted{color:v.logo img {
-  height: 40px;
-  width: auto;
-  border-radius: 8px;
-  vertical-align: middle;
+.about .muted{color:var(--muted)}
+
+/* ===== mobile tweaks ===== */
+@media (max-width:720px){
+  .logo img{height:36px;max-width:150px}
+  .brand-text strong{font-size:18px}
+  .brand-text span{font-size:12px}
+  .header-inner{flex-wrap:wrap;justify-content:center}
+  .brand{flex:1 1 100%;justify-content:center}
+  .nav-main{justify-content:center}
+  .nav-btn{font-size:14px;padding:6px 12px}
+
+  .hero{padding:32px 0}
+  .hero h1{font-size:28px}
+  .lead{font-size:14px}
+  .hero-actions{gap:8px}
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+@media (max-width:640px){
+  .hero{padding:28px 0}
+  .hero h1{font-size:30px}
 }
 
-.brand-text strong {
-  display: block;
-  font-size: 18px;
-  line-height: 1.2;
+@media (max-width:420px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .card{border-radius:16px}
 }
 
-.brand-text span {
-  font-size: 13px;
-  color: var(--muted);
-}
-ar(--muted)}
-/* --- ЛОГОТИП И ШАПКА --- */
-.logo img {
-  height: 42px;
-  width: auto;
-  max-width: 180px;
-  display: block;
-  border-radius: 6px;
-  vertical-align: middle;
+@media (max-width:380px){
+  .brand-text span{display:none}
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 0;
-}
-
-@media (max-width: 600px) {
-  .logo img {
-    height: 36px;
-    max-width: 150px;
-  }
-}
-.logo {
-  text-decoration: none;
-}
-/* ====== HEADER TWEAKS (desktop + mobile) ====== */
-.site-header{
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255,255,255,.7);
-  backdrop-filter: blur(8px) saturate(1.1);
-  border-bottom: 1px solid #e9e3da;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  min-width: 0; /* чтобы текст адекватно сжимался */
-}
-
-.logo{
-  display:inline-flex;
-  align-items:center;
-  text-decoration:none;
-}
-
-.logo img{
-  height: 42px;       /* аккуратный размер логотипа */
-  width: auto;
-  max-width: 180px;
-  display:block;
-  border-radius: 6px;
-}
-
-.brand-text strong{
-  display:block;
-  font-size: 18px;
-  line-height: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.brand-text span{
-  display:block;
-  font-size: 13px;
-  color: var(--muted);
-}
-
-/* навигация: равномерные отступы и перенос при нехватке места */
-.nav{
-  display:flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-.nav a{
-  color: var(--text);
-  text-decoration: none;
-  padding: 6px 8px;
-  border-radius: 8px;
-}
-.nav a:hover{ background: #f3efe8; }
-
-/* ====== MOBILE ====== */
-@media (max-width: 720px){
-  .site-header .container{
-    gap: 10px;
-  }
-
-  /* бренд и навигация в две строки */
-  .brand{
-    flex: 1 1 auto;
-  }
-  .logo img{
-    height: 36px;       /* чуть меньше логотип */
-    max-width: 150px;
-  }
-  .brand-text strong{ font-size: 16px; }
-  .brand-text span{ font-size: 12px; }
-
-  /* навигация уходит на вторую строку и скроллится по горизонтали */
-  .nav{
-    width: 100%;
-    order: 2;
-    margin-top: 6px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;  /* Firefox */
-  }
-  .nav::-webkit-scrollbar{ display:none; } /* Chrome/Safari */
-
-  .nav a{
-    flex: 0 0 auto;
-    padding: 8px 10px;
-    background: #fff;
-    border: 1px solid #e9e3da;
-    border-radius: 999px;
-  }
-
-  /* hero — меньше вертикальный отступ, чтобы всё поместилось */
-  .hero{ padding: 32px 0; }
-  .hero h1{ font-size: 28px; }
-  .lead{ font-size: 14px; }
-  .hero-actions{ gap: 8px; }
-}
-
-/* немного воздуха вокруг шапки на очень узких экранах */
-@media (max-width: 380px){
-  .brand-text span{ display:none; } /* можно скрыть подзаголовок, чтобы всё влезало */
-}
-/* Мобильные отступы в hero */
-@media (max-width: 640px){
-  .hero{ padding: 28px 0; }
-  .hero h1{ font-size: 30px; }
-  .lead{ font-size: 14px; }
-  .hero-actions{ gap: 8px; }
-}
-
-/* Сетка карточек на узких экранах */
-@media (max-width: 420px){
-  .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .card{ border-radius: 16px; }
-}
+/* tap highlight off */
+*{-webkit-tap-highlight-color:transparent}
