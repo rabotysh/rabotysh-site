@@ -91,3 +91,110 @@ ar(--muted)}
 .logo {
   text-decoration: none;
 }
+/* ====== HEADER TWEAKS (desktop + mobile) ====== */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,.7);
+  backdrop-filter: blur(8px) saturate(1.1);
+  border-bottom: 1px solid #e9e3da;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width: 0; /* чтобы текст адекватно сжимался */
+}
+
+.logo{
+  display:inline-flex;
+  align-items:center;
+  text-decoration:none;
+}
+
+.logo img{
+  height: 42px;       /* аккуратный размер логотипа */
+  width: auto;
+  max-width: 180px;
+  display:block;
+  border-radius: 6px;
+}
+
+.brand-text strong{
+  display:block;
+  font-size: 18px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.brand-text span{
+  display:block;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* навигация: равномерные отступы и перенос при нехватке места */
+.nav{
+  display:flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.nav a{
+  color: var(--text);
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+.nav a:hover{ background: #f3efe8; }
+
+/* ====== MOBILE ====== */
+@media (max-width: 720px){
+  .site-header .container{
+    gap: 10px;
+  }
+
+  /* бренд и навигация в две строки */
+  .brand{
+    flex: 1 1 auto;
+  }
+  .logo img{
+    height: 36px;       /* чуть меньше логотип */
+    max-width: 150px;
+  }
+  .brand-text strong{ font-size: 16px; }
+  .brand-text span{ font-size: 12px; }
+
+  /* навигация уходит на вторую строку и скроллится по горизонтали */
+  .nav{
+    width: 100%;
+    order: 2;
+    margin-top: 6px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;  /* Firefox */
+  }
+  .nav::-webkit-scrollbar{ display:none; } /* Chrome/Safari */
+
+  .nav a{
+    flex: 0 0 auto;
+    padding: 8px 10px;
+    background: #fff;
+    border: 1px solid #e9e3da;
+    border-radius: 999px;
+  }
+
+  /* hero — меньше вертикальный отступ, чтобы всё поместилось */
+  .hero{ padding: 32px 0; }
+  .hero h1{ font-size: 28px; }
+  .lead{ font-size: 14px; }
+  .hero-actions{ gap: 8px; }
+}
+
+/* немного воздуха вокруг шапки на очень узких экранах */
+@media (max-width: 380px){
+  .brand-text span{ display:none; } /* можно скрыть подзаголовок, чтобы всё влезало */
+}
