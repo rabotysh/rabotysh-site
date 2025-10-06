@@ -96,3 +96,68 @@ document.addEventListener('click', e => {
   }
   if (e.target.matches('.modal-close')) document.getElementById('modal').close();
 });
+// Глобальное состояние
+const state = { all: [], view: [] };
+
+/* пример рендера карточек — важно добавить data-idx */
+function render(){
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  state.view.forEach((ch, i) => {
+    const el = document.createElement('article');
+    el.className = 'card';
+    el.dataset.idx = i; // <-- это используется при клике
+    el.innerHTML = `
+      <img class="thumb" src="${ch.img || ch.image}" alt="${ch.name}">
+      <div class="card-body">
+        <h3>${ch.name}</h3>
+        <p class="desc">${ch.description || ch.desc || ''}</p>
+        <div class="meta">
+          ${chip(ch.dept || ch.department || '')}
+          ${chip(ch.type || '')}
+        </div>
+      </div>`;
+    grid.appendChild(el);
+  });
+  function chip(t){ return t ? `<span class="chip">${t}</span>` : ''; }
+}
+
+/* Делегирование клика по карточкам */
+document.getElementById('grid').addEventListener('click', (e) => {
+  const card = e.target.closest('.card');
+  if (!card) return;
+  const idx = Number(card.dataset.idx);
+  const item = state.view[idx];
+  if (item) openModal(item);
+});
+
+/* Открытие/закрытие модалки */
+const modal = document.getElementById('modal');
+const mImg = document.getElementById('m-img');
+const mName = document.getElementById('m-name');
+const mDesc = document.getElementById('m-desc');
+const mDept = document.getElementById('m-dept');
+const mType = document.getElementById('m-type');
+const mLinks = document.getElementById('m-links');
+
+function openModal(ch){
+  mImg.src = ch.img || ch.image || '';
+  mImg.alt = ch.name || '';
+  mName.textContent = ch.name || '';
+  mDesc.textContent = ch.description || ch.desc || '';
+  mDept.textContent = ch.dept || ch.department || '';
+  mType.textContent = ch.type || '';
+  mLinks.innerHTML = Array.isArray(ch.links)
+    ? ch.links.map(a => `<a href="${a.href}" class="btn btn-quiet" target="_blank" rel="noopener">${a.title||'Ссылка'}</a>`).join(' ')
+    : '';
+  modal.showModal();
+}
+
+document.getElementById('m-close').addEventListener('click', () => modal.close());
+modal.addEventListener('click', (e) => { // клик по фону закрывает
+  const rect = modal.getBoundingClientRect();
+  if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
+    modal.close();
+  }
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.open) modal.close(); });
