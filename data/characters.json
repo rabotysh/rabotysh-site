@@ -1,0 +1,22 @@
+{
+  "characters": [
+    {
+      "id": "rabotysh",
+      "name": "Работыш",
+      "type": "canon",
+      "department": "office",
+      "description": "Коричневый кот в белой рубашке и синем галстуке — символ офисной усталости.",
+      "image": "images/rabotysh.webp",
+      "thumb": "images/rabotysh_512.webp"
+    },
+    {
+      "id": "rabotyshka",
+      "name": "Работышка",
+      "type": "canon",
+      "department": "office",
+      "description": "Более светлый кот с розовым галстуком. Амбициозна и стремится к карьерному росту.",
+      "image": "images/rabotyshka.webp",
+      "thumb": "images/rabotyshka_512.webp"
+    }
+  ]
+}
