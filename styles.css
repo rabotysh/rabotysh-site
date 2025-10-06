@@ -159,3 +159,24 @@ img.icon{ width:32px; height:32px; object-fit:contain; display:inline-block; }
   .hero h1{font-size:28px}
   .lead{font-size:14px}
 }
+/* === modal === */
+.rb-modal{
+  width:min(920px, calc(100% - 24px));
+  border:none;
+  border-radius:18px;
+  padding:0;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+.rb-modal::backdrop{ background:rgba(0,0,0,.35); }
+.rb-modal__close{
+  position:absolute; right:10px; top:10px;
+  background:#fff; border:1px solid #e9e3da; border-radius:10px;
+  padding:6px 10px; cursor:pointer;
+}
+.rb-modal__body{ display:flex; gap:16px; padding:16px; }
+.rb-modal__media img{ max-width:360px; width:100%; height:auto; border-radius:14px; background:#f5f1ea; }
+.rb-modal__meta{ flex:1; min-width:0; }
+@media (max-width:720px){
+  .rb-modal__body{ flex-direction:column; }
+  .rb-modal__media img{ max-width:100%; }
+}
