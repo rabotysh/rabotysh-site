@@ -97,6 +97,25 @@
   </footer>
 
   <!-- Скрипт галереи -->
+  <!-- MODAL -->
+<dialog id="modal" class="rb-modal">
+  <button id="m-close" class="rb-modal__close" aria-label="Закрыть">✕</button>
+  <div class="rb-modal__body">
+    <div class="rb-modal__media">
+      <img id="m-img" alt="" />
+    </div>
+    <div class="rb-modal__meta">
+      <h3 id="m-name"></h3>
+      <p id="m-desc" class="muted"></p>
+      <div class="meta">
+        <span class="chip" id="m-dept"></span>
+        <span class="chip" id="m-type"></span>
+      </div>
+      <div id="m-links" class="meta" style="margin-top:8px;"></div>
+    </div>
+  </div>
+</dialog>
+
   <script src="app.js"></script>
 </body>
 </html>
