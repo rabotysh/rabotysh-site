@@ -88,3 +88,6 @@ ar(--muted)}
     max-width: 150px;
   }
 }
+.logo {
+  text-decoration: none;
+}
