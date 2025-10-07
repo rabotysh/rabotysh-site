@@ -7,6 +7,7 @@
   <meta name="theme-color" content="#F4EDE4">
   <script src="../version.js"></script>
   <link rel="stylesheet" href="../styles.css">
+
   <style>
     :root { --ctrl-h: 42px; }
 
@@ -51,8 +52,23 @@
       width:min(860px, 96vw); box-shadow:0 24px 48px rgba(0,0,0,.3); overflow:hidden;
       display:grid; grid-template-columns: 1fr 1fr; gap:0;
     }
-    .sheet__media{ background:#111; display:flex; align-items:center; justify-content:center; }
-    .sheet__img{ max-width:100%; max-height:76vh; width:auto; height:auto; display:block; }
+
+    /* ✅ Исправлено — убран чёрный фон, адаптировано под мобильные */
+    .sheet__media{
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .sheet__img{
+      width:100%;
+      height:auto;
+      max-height:70vh;
+      object-fit:contain;
+      background:#fff;
+      display:block;
+    }
+
     .sheet__body{ padding:18px 18px 20px; display:flex; flex-direction:column; gap:10px; }
     .sheet__title-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
     .sheet__badge{
@@ -69,7 +85,7 @@
 
     @media (max-width: 880px){
       .sheet__card{ grid-template-columns: 1fr; }
-      .sheet__img{ max-height:54vh; }
+      .sheet__img{ max-height:60vh; }
     }
     @media (max-width: 720px){
       .filters-left{ flex:1 1 100%; }
@@ -78,6 +94,7 @@
     }
   </style>
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
@@ -171,6 +188,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
