@@ -1,6 +1,3 @@
-// Вселенная: поиск, фильтр по категории, сортировка (с направлением)
-// + расширенная карточка (клик по персонажу открывает модальное окно с автором и описанием)
-
 document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('grid');
   const empty = document.getElementById('empty');
@@ -11,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const typeBy = document.getElementById('type-by');
   const reset = document.getElementById('reset');
 
-  // Модальная карточка
   const sheet = document.getElementById('sheet');
   const sheetImg = document.getElementById('sheet-img');
   const sheetTitle = document.getElementById('sheet-title');
@@ -20,10 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const sheetDesc = document.getElementById('sheet-desc');
   const sheetClose = document.getElementById('sheet-close');
 
-  // false — по убыванию (новые сверху), true — по возрастанию
   let ascending = false;
 
-  // ДАННЫЕ: одна большая картинка + автор и описание
   const items = [
     {
       name:'Работыш',
@@ -48,8 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       date:'2024-07-10',
       author:'Автор: Сообщество',
       desc:'В жёлтом жилете, носит посылки даже под дождём. Поклонническая интерпретация персонажа.'
-    },
-    // можно добавлять дальше по шаблону
+    }
   ];
 
   function badgeMini(cat){
@@ -65,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
       (!type || x.category === type)
     );
 
-    const field = sortBy.value; // 'new' | 'name'
+    const field = sortBy.value;
     list.sort((a,b) => {
       if (field === 'name') {
         const r = a.name.localeCompare(b.name,'ru');
@@ -95,13 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
         </figure>
         <div class="card-body"><h3>${x.name}</h3></div>
       `;
-      // только клик — открывает расширенную карточку
       card.addEventListener('click', () => openSheet(x));
       grid.appendChild(card);
     });
   }
 
-  // Расширенная карточка (модалка)
   function openSheet(item){
     sheetImg.src = item.img;
     sheetImg.alt = item.name;
@@ -123,15 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   sheetClose.addEventListener('click', closeSheet);
-  sheet.addEventListener('click', (e) => {
+  sheet.addEventListener('click', e => {
     const inside = e.target.closest('.sheet__card');
-    if (!inside) closeSheet(); // клик по подложке
+    if (!inside) closeSheet();
   });
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && !sheet.hidden) closeSheet();
   });
 
-  // Управление фильтрами
   q.addEventListener('input', apply);
   typeBy.addEventListener('change', apply);
   sortBy.addEventListener('change', apply);
