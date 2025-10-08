@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       name:'Отпускныш',
       img:'../images/otpusknysh.webp',
-      category:'fan',
+      category:'canon',
       date:'2024-07-10',
       author:'Автор: Степан Панов',
       desc:'Наконец-то'
