@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       name:'Строителиш',
-      img:'../images/stroitelysh.webp',
+      img:'../images/stroitelish.webp',
       category:'canon',
       date:'2024-07-10',
       author:'Автор: Степан Панов',
