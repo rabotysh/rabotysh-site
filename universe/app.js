@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Работыш',
       img:'../images/rabotysh.webp',
       category:'canon',
-      date:'2024-01-01',
+      date:'2025-05-10',
       author:'Автор: Степан Панов',
       desc:'Классический офисный Работыш: белая рубашка, синий галстук. Символ усталого профессионала.'
     },
@@ -31,17 +31,153 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Работышка',
       img:'../images/rabotyshka.webp',
       category:'canon',
-      date:'2024-03-15',
+      date:'2024-06-10',
       author:'Автор: Степан Панов',
-      desc:'Светлый вариант с розовым галстуком — более мягкий, но столь же трудолюбивый персонаж.'
+      desc:'Милая коллега, мечтающая пробрпться наверх по карьерной лестнице'
     },
     {
-      name:'Работыш-курьер',
-      img:'../images/rabotysh-kurier.webp',
+      name:'Курьерыш',
+      img:'../images/kuryerysh.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'На нём всеё держится'
+    },
+    {
+      name:'Безработыш',
+      img:'../images/bezrabotysh.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'Чилловый парень'
+    },
+    {
+      name:'Заводыш',
+      img:'../images/zavodysh.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'Его завод никогда не кончится'
+    },
+    {
+      name:'Шефыш',
+      img:'../images/shefysh.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'Степень прожарки - полностью выгоревший'
+    },
+    {
+      name:'Докторыш',
+      img:'../images/doktorysh.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'Сестра, кофеин внутривенно! И что-нибудь пациенту'
+    },
+    {
+      name:'Навозыш',
+      img:'../images/navozysh.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'Разгребает кучи'
+    },
+    {
+      name:'Строителиш',
+      img:'../images/stroitelysh.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'Построил график. Разрушил нервы'
+    },
+    {
+      name:'Баристыш',
+      img:'../images/baristysh.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'Заправляет работяг'
+    },
+    {
+      name:'Учителиш',
+      img:'../images/uchitelish.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'А голову ты дома не забыл?'
+    },
+    {
+      name:'Работыш',
+      img:'../images/robotysh.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'Им было выпито 15 литров чая, посмотрено 3 миллиона мемов и сделано 174 грустных селфи'
+    },
+    {
+      name:'Космонавтыш',
+      img:'../images/kosmonavtysh.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'Улетает с планеты, где нет вакансии "Ничё не делать и получать бабки"'
+    },
+    {
+      name:'Сеньорыш',
+      img:'../images/senyorysh.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'Hola Amigos!'
+    },
+    {
+      name:'Бабуля',
+      img:'../images/babulya.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'Работа, работа, уходи на Федота'
+    },
+    {
+      name:'Акулыш',
+      img:'../images/akulysh.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'Акула бизнеса'
+    },
+    {
+      name:'Клоуныш',
+      img:'../images/klounysh.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'Рассмешит любого, показав свою зарплату'
+    },
+    {
+      name:'Юристыш',
+      img:'../images/yuristysh.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'Вы имеете право хранить ворчание'
+    },
+    {
+      name:'Отпускныш',
+      img:'../images/otpusknysh.webp',
       category:'fan',
       date:'2024-07-10',
-      author:'Автор: Сообщество',
-      desc:'В жёлтом жилете, носит посылки даже под дождём. Поклонническая интерпретация персонажа.'
+      author:'Автор: Степан Панов',
+      desc:'Наконец-то'
+    },
+    {
+      name:'Агентыш',
+      img:'../images/agentysh.webp',
+      category:'canon',
+      date:'2024-07-10',
+      author:'Автор: Степан Панов',
+      desc:'Вы ничего не видели'
     }
   ];
 
