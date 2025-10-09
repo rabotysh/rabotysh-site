@@ -49,17 +49,31 @@
     .sort-toggle:hover{ background:#f3f2ef; }
 
     /* ===== Кнопка Telegram ===== */
-    .btn-tg{
-      display:inline-flex; align-items:center; justify-content:center;
-      background:#229ED9; color:#fff; font-weight:700;
-      border:none; border-radius:12px; height:var(--ctrl-h);
-      padding:0 16px; margin:0 0 12px 0;
-      text-decoration:none; transition:opacity .2s;
+    .btn-tg {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:#4A68A4;       /* тот же оттенок, что у "На главную" */
+      color:#fff;
+      font-weight:700;
+      border:none;
+      border-radius:12px;
+      height:var(--ctrl-h);
+      line-height:var(--ctrl-h);
+      padding:0 16px;
+      margin:0 0 12px 0;
+      text-decoration:none;
+      transition:opacity .2s;
+      box-sizing:border-box;
     }
-    .btn-tg:hover{ opacity:.92; }
+    .btn-tg:hover { opacity:.92; }
 
     @media (max-width:720px){
-      .btn-tg{ display:block; width:100%; text-align:center; }
+      .btn-tg{
+        display:block;
+        width:100%;
+        text-align:center;
+      }
       .filters-left{ flex:1 1 100%; }
       .filters-right{
         margin-left:0; flex:1 1 100%;
@@ -191,7 +205,6 @@
     </div>
   </footer>
 
-  <!-- Расширенная карточка -->
   <div id="sheet" class="sheet" hidden aria-modal="true" role="dialog">
     <div class="sheet__backdrop"></div>
     <div class="sheet__card">
