@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
       desc:'А голову ты дома не забыл?'
     },
     {
-      name:'Работыш',
+      name:'Роботыш',
       img:'../images/robotysh.webp',
       category:'canon',
       date:'2025-10-05',
