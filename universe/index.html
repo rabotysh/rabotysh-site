@@ -11,15 +11,17 @@
   <style>
     :root { --ctrl-h: 42px; }
 
+    /* Шапка */
     .nav-main .btn{
       display:inline-flex; align-items:center; justify-content:center;
       min-width:170px; height:var(--ctrl-h);
       padding:0 16px; border-radius:12px;
       text-align:center; font-weight:700;
-      background:#4A68A4; color:#fff;
+      background:#4A68A4; color:#fff; text-decoration:none;
     }
     .nav-main .btn:hover{ opacity:.92; }
 
+    /* Панель фильтров */
     .filters-bar{
       display:flex; align-items:center; gap:12px; flex-wrap:wrap;
       background:#fff; border:1px solid #e9e3da; border-radius:12px;
@@ -45,18 +47,17 @@
     }
     .sort-toggle:hover{ background:#f3f2ef; }
 
-    /* Кнопка Telegram */
+    /* Кнопка Telegram над поиском */
     .btn--tg{
       display:inline-flex; align-items:center; justify-content:center;
-      gap:8px; background:#229ED9; color:#fff; font-weight:700;
+      background:#229ED9; color:#fff; font-weight:700;
       border:none; border-radius:12px; height:var(--ctrl-h);
-      padding:0 16px; margin-bottom:12px; text-decoration:none;
+      padding:0 16px; margin:0 0 12px 0; text-decoration:none;
       transition:opacity .2s;
     }
     .btn--tg:hover{ opacity:.92; }
 
-    .btn--tg svg{ flex:0 0 auto; }
-
+    /* Бейджи/модалка */
     .thumb-wrap{ position:relative; }
     .badge{
       position:absolute; top:8px; right:8px;
@@ -71,9 +72,7 @@
       position:fixed; inset:0; z-index:1000;
       display:grid; place-items:center; padding:20px;
     }
-    .sheet__backdrop{
-      position:absolute; inset:0; background:rgba(0,0,0,.45);
-    }
+    .sheet__backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.45); }
     .sheet__card{
       position:relative; z-index:1; background:#fff; border-radius:16px;
       width:min(860px,96vw); box-shadow:0 24px 48px rgba(0,0,0,.3); overflow:hidden;
@@ -81,7 +80,6 @@
     }
     .sheet__media{ background:#fff; display:flex; align-items:center; justify-content:center; }
     .sheet__img{ width:100%; height:auto; max-height:70vh; object-fit:contain; background:#fff; display:block; }
-
     .sheet__body{ padding:18px 18px 20px; display:flex; flex-direction:column; gap:10px; }
     .sheet__title-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
     .sheet__badge{ background:#4A68A4; color:#fff; border-radius:999px; padding:4px 10px; font-size:12px; font-weight:700; }
@@ -98,31 +96,4 @@
       .sheet__card{ grid-template-columns:1fr; }
       .sheet__img{ max-height:60vh; }
     }
-    @media (max-width:720px){
-      .filters-left{ flex:1 1 100%; }
-      .filters-right{
-        margin-left:0; flex:1 1 100%;
-        justify-content:flex-start; flex-wrap:wrap; gap:8px;
-      }
-      .filters-right > select,
-      .filters-right > .sort-controls{ flex:0 1 auto; }
-      #reset{ flex:1 1 100%; }
-    }
-  </style>
-</head>
-
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="/" class="logo"><img src="../images/logo.png" alt="Работыш"></a>
-      <nav class="nav-main">
-        <a class="btn" href="/">На главную</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <h1>Вселенная Работышей</h1>
-        <p
+    @media (max-width:720
