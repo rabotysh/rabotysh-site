@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Работыш',
       img:'../images/rabotysh.webp',
       category:'canon',
-      date:'2025-03-10',
+      date:'2025-10-03',
       author:'Автор: Степан Панов',
       desc:'Классический офисный Работыш: белая рубашка, синий галстук. Символ усталого профессионала.'
     },
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Работышка',
       img:'../images/rabotyshka.webp',
       category:'canon',
-      date:'2025-04-10',
+      date:'2025-10-04',
       author:'Автор: Степан Панов',
       desc:'Милая коллега, мечтающая пробраться наверх по карьерной лестнице'
     },
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Курьерыш',
       img:'../images/kuryerysh.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'На нём всё держится'
     },
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Безработыш',
       img:'../images/bezrabotysh.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Чилловый парень'
     },
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Заводыш',
       img:'../images/zavodysh.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Его завод никогда не кончится'
     },
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Шефыш',
       img:'../images/shefysh.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Степень прожарки - полностью выгоревший'
     },
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Докторыш',
       img:'../images/doktorysh.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Сестра, кофеин внутривенно! И что-нибудь пациенту'
     },
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Навозыш',
       img:'../images/navozysh.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Разгребает кучи'
     },
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Строителиш',
       img:'../images/stroitelish.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Строит из себя на работе хрен пойми кого, а на деле милый котёночек'
     },
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Баристыш',
       img:'../images/baristysh.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Заправляет работяг'
     },
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Учителиш',
       img:'../images/uchitelish.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'А голову ты дома не забыл?'
     },
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Работыш',
       img:'../images/robotysh.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Им было выпито 15 литров чая, посмотрено 3 миллиона мемов и сделано 174 грустных селфи'
     },
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Космонавтыш',
       img:'../images/kosmonavtysh.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Улетает с планеты, где нет вакансии "Ничё не делать и получать бабки"'
     },
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Сеньорыш',
       img:'../images/senyorysh.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Hola Amigos!'
     },
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Бабуля',
       img:'../images/babulya.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Работа, работа, уходи на Федота'
     },
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Акулыш',
       img:'../images/akulysh.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Акула бизнеса'
     },
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Клоуныш',
       img:'../images/klounysh.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Рассмешит любого, показав свою зарплату'
     },
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Юристыш',
       img:'../images/yuristysh.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Вы имеете право хранить ворчание'
     },
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Отпускныш',
       img:'../images/otpusknysh.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Наконец-то'
     },
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Агентыш',
       img:'../images/agentysh.webp',
       category:'canon',
-      date:'2025-05-10',
+      date:'2025-10-05',
       author:'Автор: Степан Панов',
       desc:'Вы ничего не видели'
     },
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Блэкметалыш',
       img:'../images/blekmetalysh.webp',
       category:'canon',
-      date:'2025-07-10',
+      date:'2025-10-07',
       author:'Автор: Степан Панов',
       desc:'...'
     },
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Кассирыш',
       img:'../images/kassirysh.webp',
       category:'canon',
-      date:'2025-07-10',
+      date:'2025-10-07',
       author:'Автор: Степан Панов',
       desc:'Касса свободная, а он нет'
     },
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Малярыш',
       img:'../images/malyarysh.webp',
       category:'canon',
-      date:'2025-07-10',
+      date:'2025-10-07',
       author:'Автор: Степан Панов',
       desc:'Валик крутится, копейки мутятся'
     },
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'РЖДшыш',
       img:'../images/rzhdshysh.webp',
       category:'canon',
-      date:'2025-07-10',
+      date:'2025-10-07',
       author:'Автор: Степан Панов',
       desc:'Любит поезда'
     },
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Сварыш',
       img:'../images/svarysh.webp',
       category:'canon',
-      date:'2025-07-10',
+      date:'2025-10-07',
       author:'Автор: Степан Панов',
       desc:'Давно в этом варится'
     },
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Священныш',
       img:'../images/svyaschennysh.webp',
       category:'canon',
-      date:'2025-07-10',
+      date:'2025-10-07',
       author:'Автор: Степан Панов',
       desc:'Богат духовно'
     },
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Татуировыш',
       img:'../images/tatuirovysh.webp',
       category:'canon',
-      date:'2025-07-10',
+      date:'2025-10-07',
       author:'Автор: Степан Панов',
       desc:'С ним не шутите, а то набьёт что-нибудь'
     },
@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Тайлер Дёрденыш',
       img:'../images/taylerdyordenysh.webp',
       category:'canon',
-      date:'2025-07-10',
+      date:'2025-10-07',
       author:'Автор: Степан Панов',
       desc:'Лишь утратив всё до конца, мы обретаем свободу'
     },
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Техподдержиш',
       img:'../images/tehpodderzhysh.webp',
       category:'canon',
-      date:'2025-07-10',
+      date:'2025-10-07',
       author:'Автор: Степан Панов',
       desc:'Вы не пробовали перезагрузить?'
     },
@@ -255,9 +255,25 @@ document.addEventListener('DOMContentLoaded', () => {
       name:'Вкусныш',
       img:'../images/vkusnysh.webp',
       category:'canon',
-      date:'2025-07-10',
+      date:'2025-10-07',
       author:'Автор: Степан Панов',
       desc:'Устал и точка'
+    },
+    {
+      name:'Медсестрёныш',
+      img:'../images/medsestryonysh.webp',
+      category:'fan',
+      date:'2025-10-08',
+      author:'Автор: Марьяна Кравченко',
+      desc:'Комарик укусит и всё'
+    },
+    {
+      name:'Удалёныш',
+      img:'../images/udalyonysh.webp',
+      category:'fan',
+      date:'2025-10-09',
+      author:'Автор: ТикТок: ZANAVESKA (@za_naveska)',
+      desc:'Он очень люит свой макбук, всегда пунктуален и точен в расчётах, на видео звонках обычно в кадре только по пояс (почему-то)), любит выбраться куда-то на природу, но работа не позволяет. Любит шашлык'
     }
   ];
 
