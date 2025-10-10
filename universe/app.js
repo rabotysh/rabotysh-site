@@ -314,6 +314,86 @@ document.addEventListener('DOMContentLoaded', () => {
       date:'2025-10-10',
       author:'Автор: ялфри боится тишины',
       desc:'Он просто chill guy, которого обеспечивает мама'
+    },
+    {
+      name:'Тыменявидыш?',
+      img:'../images/tymenyavidysh.webp',
+      category:'fan',
+      date:'2025-10-10',
+      author:'Автор: Василиск(?)',
+      desc:'Я устал.....\nСлишком много.....\nРаботы.....\nЗадач.....\nСколько ещё?.....\n...\nГде я?...\nЭй.........\nКто-нибудь?.......\n...\nТы меня видишь?'
+    },
+    {
+      name:'Спортиш',
+      img:'../images/sportish.webp',
+      category:'fan',
+      date:'2025-10-10',
+      author:'Автор: taska',
+      desc:'Спорт это смысл жизни'
+    },
+    {
+      name:'Спортиш',
+      img:'../images/sportish.webp',
+      category:'fan',
+      date:'2025-10-10',
+      author:'Автор: taska',
+      desc:'Спорт это смысл жизни'
+    },
+    {
+      name:'Спортиш',
+      img:'../images/sportish.webp',
+      category:'fan',
+      date:'2025-10-10',
+      author:'Автор: taska',
+      desc:'Спорт это смысл жизни'
+    },
+    {
+      name:'Спортиш',
+      img:'../images/sportish.webp',
+      category:'fan',
+      date:'2025-10-10',
+      author:'Автор: taska',
+      desc:'Спорт это смысл жизни'
+    },
+    {
+      name:'Спортиш',
+      img:'../images/sportish.webp',
+      category:'fan',
+      date:'2025-10-10',
+      author:'Автор: taska',
+      desc:'Спорт это смысл жизни'
+    },
+    {
+      name:'Спортиш',
+      img:'../images/sportish.webp',
+      category:'fan',
+      date:'2025-10-10',
+      author:'Автор: taska',
+      desc:'Спорт это смысл жизни'
+    },
+    {
+      name:'Спортиш',
+      img:'../images/sportish.webp',
+      category:'fan',
+      date:'2025-10-10',
+      author:'Автор: taska',
+      desc:'Спорт это смысл жизни'
+    },
+    {
+      name:'Спортиш',
+      img:'../images/sportish.webp',
+      category:'fan',
+      date:'2025-10-10',
+      author:'Автор: taska',
+      desc:'Спорт это смысл жизни'
+    },
+    {
+      name:'Спортиш',
+      img:'../images/sportish.webp',
+      category:'fan',
+      date:'2025-10-10',
+      author:'Автор: taska',
+      desc:'Спорт это смысл жизни'
     }
   ];
 
