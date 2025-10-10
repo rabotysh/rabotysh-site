@@ -349,6 +349,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
+  // === Нормализация: добавляем таймстамп из даты и исходный индекс (для тай-брейка) ===
+  const normalized = items.map((it, idx) => ({
+    ...it,
+    _ts: Date.parse(it.date || 0), // из 'YYYY-MM-DD' получаем число
+    _i: idx                         // исходный порядок в массиве
+  }));
+
   function badgeMini(cat){
     return `<span class="badge ${cat === 'fan' ? 'badge--fan' : ''}">${cat === 'fan' ? 'Фан' : 'Канон'}</span>`;
   }
@@ -357,19 +364,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const search = q.value.trim().toLowerCase();
     const type = typeBy.value;
 
-    let list = items.filter(x =>
+    let list = normalized.filter(x =>
       (!search || x.name.toLowerCase().includes(search)) &&
       (!type || x.category === type)
     );
 
     const field = sortBy.value;
-    list.sort((a,b) => {
+
+    // Сортируем:
+    // - name: алфавит
+    // - new (по умолчанию): по дате (новее выше), а при равенстве даты — по исходному порядку (кто позже добавлен — выше)
+    list.sort((a, b) => {
       if (field === 'name') {
-        const r = a.name.localeCompare(b.name,'ru');
+        const r = (a.name || '').localeCompare(b.name || '', 'ru', {sensitivity:'base'});
         return ascending ? r : -r;
       } else {
-        const r = new Date(a.date) - new Date(b.date);
-        return ascending ? r : -r;
+        if (a._ts !== b._ts) {
+          const r = b._ts - a._ts; // новее выше
+          return ascending ? -r : r;
+        }
+        // тай-брейк: кто позже появился в массиве, тот выше
+        const r = b._i - a._i;
+        return ascending ? -r : r;
       }
     });
 
