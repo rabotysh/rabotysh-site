@@ -298,6 +298,31 @@ document.addEventListener('DOMContentLoaded', () => {
       date:'2025-10-10',
       author:'Автор: tatifari',
       desc:'Это скрипачишка, у нее абьюзивные отношения с музыкой(и с размером зп)'
+    },
+    {
+      name:'Спортиш',
+      img:'../images/sportish.webp',
+      category:'fan',
+      date:'2025-10-10',
+      author:'Автор: taska',
+      desc:'Спорт это смысл жизни'
+    },
+    {
+      name:' Ачучонсыш',
+      img:'../images/achuchonsysh.webp',
+      category:'fan',
+      date:'2025-10-10',
+      author:'Автор: ялфри боится тишины',
+      desc:'Он просто chill guy, которого обеспечивает мама'
+    },
+    {
+      name:'Тыменявидыш?',
+      img:'../images/tymenyavidysh.webp',
+      category:'fan',
+      date:'2025-10-10',
+      author:'Автор: Василиск(?)',
+      desc:'desc:'Я устал.....\nСлишком много.....\nРаботы.....\nЗадач.....\nСколько ещё?.....\n...\nГде я?...\nЭй.........\nКто-нибудь?.......\n...\nТы меня видишь?'
+'
     }
   ];
 
