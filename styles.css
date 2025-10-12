@@ -9,7 +9,7 @@
   --ctrl-h:42px; /* базовая высота контролов */
 }
 
-/* base */
+/* ===== base ===== */
 *{box-sizing:border-box}
 body{
   margin:0;
@@ -19,7 +19,7 @@ body{
 }
 .container{max-width:1100px;margin:0 auto;padding:0 16px}
 
-/* header */
+/* ===== header ===== */
 .site-header{
   position:sticky;top:0;z-index:50;
   background:rgba(255,255,255,.7);
@@ -52,7 +52,7 @@ body{
   .nav-main .btn-ozon .ico-cart{display:none}
 }
 
-/* hero */
+/* ===== hero ===== */
 .hero{
   padding:56px 0;
   background:radial-gradient(1000px 400px at 50% -100px,rgba(74,104,164,.10),transparent);
@@ -61,7 +61,7 @@ body{
 .lead{color:var(--muted)}
 .hero-actions{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 
-/* buttons (general) */
+/* ===== buttons (general) ===== */
 .btn{
   background:linear-gradient(180deg,#4A68A4 0%,#3D5991 100%);
   color:#fff;border:none;border-radius:12px;padding:10px 16px;font-weight:600;
@@ -72,7 +72,7 @@ body{
 .btn-quiet{background:#e9eefb;color:#1d2f8a;box-shadow:none}
 .btn-special{background:linear-gradient(180deg,#C6A869 0%,#B8964F 100%);color:#fff}
 
-/* FILTERS */
+/* ===== FILTERS ===== */
 .filters{padding:20px 0}
 .filters-bar{
   display:flex;align-items:center;gap:12px;flex-wrap:wrap;
@@ -81,7 +81,6 @@ body{
 }
 .filters-left{display:flex;align-items:center;gap:12px;flex:1 1 420px;min-width:260px}
 .filters-right{display:flex;align-items:center;gap:10px;margin-left:auto;flex:0 1 auto}
-
 .filters-bar input[type="search"],
 .filters-bar select,.filters-bar .btn,.sort-toggle{
   height:var(--ctrl-h);padding:0 12px;border-radius:10px;border:1px solid #ddd;background:#fff;font:inherit
@@ -91,14 +90,7 @@ body{
 .sort-toggle{background:#fff;border:1px solid #ddd;cursor:pointer;font-size:18px;line-height:1;padding:4px 10px}
 .sort-toggle:hover{background:#f3f2ef}
 
-@media (max-width:720px){
-  .filters-left{flex:1 1 100%}
-  .filters-right{margin-left:0;flex:1 1 100%;justify-content:flex-start;flex-wrap:wrap;gap:8px}
-  .filters-right > select,.filters-right > .sort-controls{flex:0 1 auto}
-  #reset{flex:1 1 100%}
-}
-
-/* gallery */
+/* ===== gallery ===== */
 .gallery{padding:20px 0 48px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
 .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:transform .15s ease}
@@ -110,15 +102,15 @@ body{
 .meta{margin-top:8px;font-size:12px;color:#61656b;display:flex;gap:6px;flex-wrap:wrap}
 .meta .chip{background:#f1eee8;border:1px solid #e7e1d9;border-radius:8px;padding:2px 8px}
 
-/* about */
+/* ===== about ===== */
 .about{padding:40px 0;border-top:1px solid #e9e3da}
 .about h2{font-size:28px;margin-bottom:10px}
 .about .muted{color:var(--muted)}
 
-/* empty state */
+/* ===== empty state ===== */
 .empty{margin:20px 0 0;color:var(--muted);text-align:center;font-size:14px}
 
-/* footer */
+/* ===== footer ===== */
 .footer{border-top:1px solid #e9e3da;background:rgba(255,255,255,.5);padding:24px 0}
 .footer-inner{display:flex;align-items:center;justify-content:flex-start;gap:16px;flex-wrap:wrap;color:#6C7177;font-size:14px}
 .footer-left{display:flex;align-items:center;gap:10px}
@@ -126,30 +118,15 @@ body{
 .footer .icon{width:32px;height:32px;opacity:.85;transition:opacity .2s,transform .2s}
 .footer .icon:hover{opacity:1;transform:scale(1.1)}
 
-/* mobile tweaks */
-@media (max-width:720px){
-  .logo img{height:36px}
-  .hero{padding:32px 0}
-  .hero h1{font-size:28px}
-  .lead{font-size:14px}
-  .btn-tg{width:100%;text-align:center}
-  .footer-inner{flex-direction:column;align-items:flex-start;gap:6px}
-  .footer-copy{margin-left:0}
-}
-
-/* modal (если используется) */
+/* ===== modal (если используется) ===== */
 .rb-modal{width:min(920px,calc(100% - 24px));border:none;border-radius:18px;padding:0;box-shadow:0 20px 60px rgba(0,0,0,.25)}
 .rb-modal::backdrop{background:rgba(0,0,0,.35)}
 .rb-modal__close{position:absolute;right:10px;top:10px;background:#fff;border:1px solid #e9e3da;border-radius:10px;padding:6px 10px;cursor:pointer}
 .rb-modal__body{display:flex;gap:16px;padding:16px}
 .rb-modal__media img{max-width:360px;width:100%;height:auto;border-radius:14px;background:#f5f1ea}
 .rb-modal__meta{flex:1;min-width:0}
-@media (max-width:720px){
-  .rb-modal__body{flex-direction:column}
-  .rb-modal__media img{max-width:100%}
-}
 
-/* Telegram button (reused) */
+/* ===== Telegram button (reused) ===== */
 .btn-tg{
   display:inline-flex;align-items:center;justify-content:center;
   background:linear-gradient(180deg,#4A68A4 0%,#3D5991 100%);
@@ -159,109 +136,42 @@ body{
   transition:transform .15s,box-shadow .2s
 }
 .btn-tg:hover{transform:translateY(-1px);box-shadow:0 6px 12px rgba(0,0,0,.12)}
-/* === MOBILE FIX: выравнивание панели фильтров как было === */
-@media (max-width:720px){
-  .filters-bar{
-    padding:12px;
-  }
 
-  /* поиск — первой строкой на всю ширину */
+/* =========================================================
+   MOBILE — аккуратная, читабельная панель фильтров
+   ========================================================= */
+@media (max-width:720px){
+  .logo img{height:36px}
+  .hero{padding:32px 0}
+  .hero h1{font-size:28px}
+  .lead{font-size:14px}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:6px}
+  .footer-copy{margin-left:0}
+
+  .filters-bar{padding:12px}
+
+  /* поиск — отдельной строкой */
   .filters-left{
     flex:1 1 100%;
-    margin:0 0 8px 0;
+    margin:0 0 10px 0;
   }
-  .filters-left input[type="search"]{
-    width:100%;
-  }
+  .filters-left input[type="search"]{width:100%}
 
-  /* селекты + стрелка — в одну строку сеткой */
+  /* селекты — каждый на всю ширину, без обрезания текста */
   .filters-right{
     flex:1 1 100%;
-    margin:0;
-    display:grid;
-    grid-template-columns: 1fr 1fr 48px; /* кат., сорт., кнопка ▼ */
-    gap:8px;
-    align-items:stretch;
-    justify-items:stretch;
-  }
-
-  #type-by,
-  #sort-by{
-    width:100%;
-    min-height: var(--ctrl-h);
-  }
-
-  #sort-dir{
-    width:48px;
-    min-width:48px;
-    padding:0;
-    height:var(--ctrl-h);
-    line-height:var(--ctrl-h);
-    display:inline-flex; align-items:center; justify-content:center;
-  }
-
-  /* Сбросить — отдельной строкой на всю ширину */
-  #reset{
-    grid-column: 1 / -1; /* занять всю строку */
-    width:100%;
-    justify-self:stretch;
-  }
-}
-
-/* На совсем узких экранах можно стэкнуть всё по 1 в ряд */
-@media (max-width:380px){
-  .filters-right{
-    grid-template-columns: 1fr; /* элементы один под другим */
-  }
-}
-/* === MOBILE FILTERS — final layout === */
-
-/* базовая мобильная раскладка */
-@media (max-width:720px){
-  .filters-bar{ padding:12px; }
-
-  /* поиск отдельной строкой на всю ширину */
-  .filters-left{
-    flex:1 1 100%;
-    margin:0 0 8px 0;
-  }
-  .filters-left input[type="search"]{ width:100%; }
-
-  /* селекты и кнопка ▼ — во flex c переносами */
-  .filters-right{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    align-items:stretch;
     margin-left:0;
-    flex:1 1 100%;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:10px;
+    align-items:stretch;
   }
-
-  /* даём селектам разумные минимальные ширины,
-     чтобы текст помещался и при необходимости переносилось на следующую строку */
-  #type-by{ flex:1 1 240px; width:auto; min-width:200px; }
-  #sort-by{ flex:1 1 180px; width:auto; min-width:160px; }
-
-  /* маленькая кнопка со стрелкой */
-  #sort-dir{
-    flex:0 0 48px;
-    width:48px;
-    padding:0;
-    height:var(--ctrl-h);
-    line-height:var(--ctrl-h);
-    display:inline-flex; align-items:center; justify-content:center;
-  }
-
-  /* Сбросить — отдельной строкой */
-  #reset{
-    flex:1 1 100%;
-    width:100%;
-    justify-self:stretch;
-  }
+  #type-by, #sort-by{width:100%;min-height:var(--ctrl-h)}
+  #sort-dir{display:none}        /* стрелка не нужна на мобиле */
+  #reset{width:100%}             /* «Сбросить» — шириной во всю строку */
 }
 
-/* на очень узких экранах — селекты по одному в ряд, кнопку ▼ прячем */
-@media (max-width:420px){
-  #type-by, #sort-by{ flex:1 1 100%; min-width:0; width:100%; }
-  #sort-dir{ display:none; }
+@media (max-width:720px){
+  .rb-modal__body{flex-direction:column}
+  .rb-modal__media img{max-width:100%}
 }
