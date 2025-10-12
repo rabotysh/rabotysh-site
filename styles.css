@@ -343,4 +343,58 @@ img.icon{ width:32px; height:32px; object-fit:contain; display:inline-block; }
     height:38px;              /* выровнять по высоте с .btn-ozon */
   }
 }
+/* --- HOTFIX: header buttons: keep in one row, center content --- */
+:root{ --ctrl-h: 42px; }
+
+.site-header .header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:nowrap;                /* не переносим логотип и навигацию */
+}
+
+.nav-main{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:nowrap;                /* держим кнопки в одну строку */
+}
+
+.nav-main .btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:38px;                     /* компактнее, одинаковая высота */
+  line-height:38px;
+  padding:0 12px;
+  border-radius:12px;
+  min-width:0;                     /* можно сжиматься */
+  white-space:nowrap;              /* не ломаем надпись */
+}
+
+.btn-icon{
+  width:38px;
+  min-width:38px;
+  height:38px;
+  line-height:38px;
+  padding:0;
+}
+.btn-icon svg{ width:18px; height:18px; fill:#fff; }
+
+/* магазин: чуть меньше шрифт и отступы на мобиле */
+.btn-ozon{ font-size:15px; }
+@media (max-width:520px){
+  .btn-ozon{ font-size:14px; padding:0 10px; }
+}
+
+/* иконка тележки внутри кнопки */
+.btn-ozon .ico-cart{
+  width:18px; height:18px; fill:#fff; margin-right:8px; flex:0 0 auto;
+}
+
+/* на очень узких — прячем иконку, оставляем текст */
+@media (max-width:390px){
+  .btn-ozon .ico-cart{ display:none; }
+}
 
