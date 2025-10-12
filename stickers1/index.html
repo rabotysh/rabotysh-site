@@ -4,30 +4,36 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Коллекционные стикеры — Серия 1</title>
-  <meta name="description" content="Первая официальная серия стикеров с Работышами. Собери всю коллекцию каноничных и фанатских героев.">
   <meta name="theme-color" content="#F4EDE4">
-  <link rel="canonical" href="https://rabotysh.ru/stickers1/">
-  <link rel="stylesheet" href="../styles.css?v=2025.10.12.1">
-
+  <script src="../version.js"></script>
+  <link rel="stylesheet" href="../styles.css">
   <style>
     .poster-wrap{padding:32px 0 48px}
-    .poster{display:block;max-width:960px;width:100%;height:auto;margin:0 auto;background:#fff;border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.06)}
-    .links{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+    .poster{
+      display:block;
+      max-width:960px;
+      width:100%;
+      height:auto;
+      margin:0 auto;
+      background:#fff;
+      border-radius:18px;
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+    }
+    .links{
+      margin-top:20px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
   </style>
 </head>
-
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="logo"><img src="../images/logo.png" alt="Работыш"></a>
       <nav class="nav-main">
-        <a class="btn btn-icon" href="/" aria-label="На главную">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 10v9a2 2 0 0 0 2 2h5v-6h4v6h5a2 2 0 0 0 2-2v-9l-9-7z"/></svg>
-        </a>
-        <a class="btn btn-ozon" href="https://ozon.ru/t/h1spjKG" target="_blank" rel="noopener">
-          <svg class="ico-cart" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 6h14l-1.5 8.5a2 2 0 0 1-2 1.5H9a2 2 0 0 1-2-1.5L5 4H2" fill="currentColor"/></svg>
-          <span>Магазин на Ozon</span>
-        </a>
+        <a class="btn" href="/">На главную</a>
       </nav>
     </div>
   </header>
@@ -49,19 +55,31 @@
         </div>
       </div>
     </section>
+
+    <section class="about">
+      <div class="container">
+        <h2>О серии</h2>
+        <p class="muted">Серия 1 — Классические герои, главные профессии и уникальные образы. Собери всю коллекцию!</p>
+      </div>
+    </section>
   </main>
 
+  <!-- ===== Подвал ===== -->
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-left">
-        <a href="https://vk.com/rabotysh"><img src="../images/vk.png" class="icon"></a>
-        <a href="https://www.tiktok.com/@rabotysh"><img src="../images/tiktok.png" class="icon"></a>
+        <a href="https://vk.com/rabotysh" target="_blank" rel="noopener">
+          <img src="../images/vk.png" alt="VK" class="icon" width="32" height="32" loading="lazy" decoding="async">
+        </a>
+        <a href="https://www.tiktok.com/@rabotysh" target="_blank" rel="noopener">
+          <img src="../images/tiktok.png" alt="TikTok" class="icon" width="32" height="32" loading="lazy" decoding="async">
+        </a>
       </div>
       <div class="footer-copy">
-        © 2025 Работыш™ ИП Панов Степан Сергеевич. Все права защищены. · 
-        <a href="../privacy.html" class="footer-link">Политика обработки данных</a>
+        © 2025 Работыш™ ИП Панов Степан Сергеевич. Все права защищены.
       </div>
     </div>
   </footer>
+
 </body>
 </html>
