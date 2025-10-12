@@ -4,7 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Вселенная Работышей</title>
+  <meta name="description" content="Коллекция каноничных и фанатских Работышей — от офисных героев до самых неожиданных интерпретаций.">
   <meta name="theme-color" content="#F4EDE4">
+  <link rel="canonical" href="https://rabotysh.ru/universe/">
+
+  <!-- 🔖 Favicon / PWA basics -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <!-- 📣 Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rabotysh.ru/universe/">
+  <meta property="og:title" content="Вселенная Работышей">
+  <meta property="og:description" content="Коллекция каноничных и фанатских Работышей — от офисных героев до самых неожиданных интерпретаций.">
+  <meta property="og:image" content="https://rabotysh.ru/images/share-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Вселенная Работышей">
+  <meta name="twitter:description" content="Коллекция каноничных и фанатских Работышей — от офисных героев до самых неожиданных интерпретаций.">
+  <meta name="twitter:image" content="https://rabotysh.ru/images/share-cover.png">
+
   <script src="../version.js"></script>
   <link rel="stylesheet" href="../styles.css">
 
@@ -12,6 +34,7 @@
     :root { --ctrl-h: 42px; }
 
     /* ===== Шапка ===== */
+    .nav-main { display:flex; gap:10px; }
     .nav-main .btn{
       display:inline-flex; align-items:center; justify-content:center;
       min-width:170px; height:var(--ctrl-h);
@@ -132,10 +155,11 @@
 
 <body>
   <header class="site-header">
-    <div class="container header-inner">
+    <div class="container header-inner" style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
       <a href="/" class="logo"><img src="../images/logo.png" alt="Работыш"></a>
       <nav class="nav-main">
         <a class="btn" href="/">На главную</a>
+        <a class="btn" href="https://ozon.ru/t/h1spjKG" target="_blank" rel="noopener">🛒 Магазин на Ozon</a>
       </nav>
     </div>
   </header>
