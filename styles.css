@@ -214,3 +214,54 @@ body{
     grid-template-columns: 1fr; /* элементы один под другим */
   }
 }
+/* === MOBILE FILTERS — final layout === */
+
+/* базовая мобильная раскладка */
+@media (max-width:720px){
+  .filters-bar{ padding:12px; }
+
+  /* поиск отдельной строкой на всю ширину */
+  .filters-left{
+    flex:1 1 100%;
+    margin:0 0 8px 0;
+  }
+  .filters-left input[type="search"]{ width:100%; }
+
+  /* селекты и кнопка ▼ — во flex c переносами */
+  .filters-right{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    align-items:stretch;
+    margin-left:0;
+    flex:1 1 100%;
+  }
+
+  /* даём селектам разумные минимальные ширины,
+     чтобы текст помещался и при необходимости переносилось на следующую строку */
+  #type-by{ flex:1 1 240px; width:auto; min-width:200px; }
+  #sort-by{ flex:1 1 180px; width:auto; min-width:160px; }
+
+  /* маленькая кнопка со стрелкой */
+  #sort-dir{
+    flex:0 0 48px;
+    width:48px;
+    padding:0;
+    height:var(--ctrl-h);
+    line-height:var(--ctrl-h);
+    display:inline-flex; align-items:center; justify-content:center;
+  }
+
+  /* Сбросить — отдельной строкой */
+  #reset{
+    flex:1 1 100%;
+    width:100%;
+    justify-self:stretch;
+  }
+}
+
+/* на очень узких экранах — селекты по одному в ряд, кнопку ▼ прячем */
+@media (max-width:420px){
+  #type-by, #sort-by{ flex:1 1 100%; min-width:0; width:100%; }
+  #sort-dir{ display:none; }
+}
