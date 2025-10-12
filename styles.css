@@ -221,3 +221,79 @@ body{
 @media (max-width:720px){
   .btn-tg{width:100%;text-align:center}
 }
+/* ===== MOBILE: блок поиска/фильтров как на скрине ===== */
+@media (max-width: 720px) {
+  /* Белый бокс */
+  .filters-bar{
+    padding: 12px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    gap: 10px;
+  }
+
+  /* 1) Поиск — отдельной строкой на всю ширину */
+  .filters-left{
+    flex: 1 1 100%;
+    margin: 0;
+  }
+  .filters-left input[type="search"]{
+    width: 100%;
+    height: var(--ctrl-h);
+    padding: 0 14px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font: inherit;
+  }
+
+  /* 2) Фильтр/сортировка/стрелка — в одну строку */
+  .filters-right{
+    display: grid;
+    grid-template-columns: 1fr 1fr 52px; /* Категории | Сортировка | ▾ */
+    gap: 10px;
+    width: 100%;
+    margin: 0;
+    align-items: stretch;
+  }
+
+  /* Селекты — одинаковой высоты и ширины */
+  #type-by, #sort-by{
+    width: 100%;
+    min-height: var(--ctrl-h);
+    height: var(--ctrl-h);
+    padding: 0 12px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+    font: inherit;
+  }
+
+  /* Квадратная кнопка со стрелкой */
+  #sort-dir{
+    width: 52px; min-width: 52px;
+    height: var(--ctrl-h);
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+    font-size: 18px; line-height: 1;
+    cursor: pointer;
+  }
+
+  /* 3) «Сбросить» — отдельной строкой во всю ширину */
+  #reset{
+    grid-column: 1 / -1; /* занять всю строку */
+    width: 100%;
+    height: calc(var(--ctrl-h) + 8px);
+    border-radius: 14px;
+    font-weight: 700;
+  }
+}
+
+/* Очень узкие экраны — по одному элементу в столбик, стрелку скрываем */
+@media (max-width: 400px){
+  .filters-right{ grid-template-columns: 1fr; }
+  #sort-dir{ display: none; }
+}
