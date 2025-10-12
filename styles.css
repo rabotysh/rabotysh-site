@@ -297,3 +297,101 @@ body{
   .filters-right{ grid-template-columns: 1fr; }
   #sort-dir{ display: none; }
 }
+/* === MOBILE FILTER LAYOUT: фильтр и стрелка в одной строке === */
+@media (max-width: 720px) {
+
+  .filters-bar {
+    padding: 12px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+    gap: 10px;
+  }
+
+  /* Поиск на всю ширину */
+  .filters-left {
+    flex: 1 1 100%;
+    margin: 0 0 8px 0;
+  }
+  .filters-left input[type="search"] {
+    width: 100%;
+    height: var(--ctrl-h);
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    padding: 0 14px;
+    font: inherit;
+  }
+
+  /* Вторая строка — две колонки */
+  .filters-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Левая колонка — категории */
+  #type-by {
+    width: 100%;
+    height: var(--ctrl-h);
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font: inherit;
+    padding: 0 12px;
+  }
+
+  /* Правая колонка — сортировка и стрелка в одной строке */
+  .sort-wrapper {
+    display: flex;
+    align-items: stretch;
+    gap: 6px;
+    width: 100%;
+  }
+
+  #sort-by {
+    flex: 1;
+    height: var(--ctrl-h);
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font: inherit;
+    padding: 0 12px;
+  }
+
+  #sort-dir {
+    flex: 0 0 48px;
+    height: var(--ctrl-h);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  /* Третья строка — кнопка "Сбросить" на всю ширину */
+  #reset {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: calc(var(--ctrl-h) + 8px);
+    border-radius: 14px;
+    font-weight: 700;
+    box-sizing: border-box;
+  }
+}
+
+/* Очень узкие экраны — всё по одному */
+@media (max-width: 400px) {
+  .filters-right {
+    grid-template-columns: 1fr;
+  }
+  .sort-wrapper {
+    flex-direction: column;
+  }
+  #sort-dir {
+    display: none;
+  }
+}
