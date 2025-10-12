@@ -37,7 +37,8 @@
     .nav-main { display:flex; gap:10px; }
     .nav-main .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      min-width:170px; height:var(--ctrl-h);
+      /* без жёсткого min-width — чтобы работал мобильный фикс из styles.css */
+      height:var(--ctrl-h);
       padding:0 16px; border-radius:12px;
       text-align:center; font-weight:700;
       background:#4A68A4; color:#fff;
@@ -158,8 +159,13 @@
     <div class="container header-inner" style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
       <a href="/" class="logo"><img src="../images/logo.png" alt="Работыш"></a>
       <nav class="nav-main">
-        <a class="btn" href="/">На главную</a>
-        <a class="btn" href="https://ozon.ru/t/h1spjKG" target="_blank" rel="noopener">🛒 Магазин на Ozon</a>
+        <!-- Домик вместо текста -->
+        <a class="btn btn-icon" href="/" aria-label="На главную">
+          <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
+            <path d="M12 3 3 10v9a2 2 0 0 0 2 2h5v-6h4v6h5a2 2 0 0 0 2-2v-9l-9-7z"/>
+          </svg>
+        </a>
+        <a class="btn btn-ozon" href="https://ozon.ru/t/h1spjKG" target="_blank" rel="noopener">🛒 Магазин на Ozon</a>
       </nav>
     </div>
   </header>
