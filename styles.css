@@ -274,3 +274,65 @@ body{
     justify-self: stretch;
   }
 }
+/* === MOBILE FILTERS — 2 равные колонки, стрелка поверх селекта === */
+@media (max-width:720px){
+  /* строка фильтров: 2 колонки одинаковой ширины */
+  .filters-right{
+    display:grid;
+    grid-template-columns: 1fr 1fr; /* [Все категории] | [По новизне] */
+    gap:8px;
+    width:100%;
+    margin-left:0;
+    align-items:stretch;
+  }
+
+  /* группа сортировки — контейнер для селекта и кнопки-стрелки */
+  .sort-controls{
+    position:relative; /* чтобы позиционировать стрелку внутри */
+    width:100%;
+  }
+
+  /* селект сортировки: отступ справа под стрелку */
+  #sort-by{
+    width:100%;
+    min-height:var(--ctrl-h);
+    padding-right:48px; /* место для кнопки ▼ */
+    box-sizing:border-box;
+    font-size:15px;
+  }
+
+  /* кнопка-стрелка: поверх селекта, не занимает колонку */
+  #sort-dir{
+    position:absolute;
+    top:0; right:4px;
+    height:var(--ctrl-h);
+    width:44px;
+    display:inline-flex;
+    align-items:center; justify-content:center;
+    padding:0; margin:0;
+    border:1px solid #ddd; border-radius:10px; background:#fff;
+    box-sizing:border-box;
+  }
+
+  /* селект категорий — на всю доступную ширину своей колонки */
+  #type-by{
+    width:100%;
+    min-height:var(--ctrl-h);
+    box-sizing:border-box;
+    font-size:15px;
+  }
+
+  /* Сбросить — новой строкой на всю ширину бокса */
+  #reset{
+    grid-column:1 / -1;
+    width:100%;
+    justify-self:stretch;
+    box-sizing:border-box;
+  }
+}
+
+/* на сверхузких (<=380px) — уходим в столбик, стрелку можно скрыть */
+@media (max-width:380px){
+  .filters-right{ grid-template-columns:1fr; }
+  #sort-dir{ display:none; }
+}
