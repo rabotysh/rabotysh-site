@@ -3,19 +3,78 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Работыш™ — Главная</title>
-  <meta name="description" content="Работыш™ — усталый кот, который всё ещё делает вид, что работает. Добро пожаловать во вселенную Работышей.">
-  <meta name="theme-color" content="#F4EDE4">
 
-  <!-- 🌐 Стили -->
+  <title>Работыш — официальный сайт мемного кота</title>
+  <link rel="canonical" href="https://rabotysh.ru/">
+  <meta name="description" content="Работыш — усталый кот, который всё ещё делает вид, что работает. Добро пожаловать во вселенную Работышей: комиксы, коллекционные стикеры, фанатские персонажи и мерч.">
+  <meta name="theme-color" content="#F4EDE4">
+  <meta name="robots" content="index,follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rabotysh.ru/">
+  <meta property="og:title" content="Работыш — уставший кот-офисник">
+  <meta property="og:description" content="Официальный сайт вселенной Работышей: комиксы, стикеры, фанаты и мерч.">
+  <meta property="og:image" content="https://rabotysh.ru/images/share-cover.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Работыш — уставший кот-офисник">
+  <meta name="twitter:description" content="Официальный сайт вселенной Работышей: комиксы, стикеры, фанаты и мерч.">
+  <meta name="twitter:image" content="https://rabotysh.ru/images/share-cover.png">
+
+  <!-- Icons / PWA (если файлов нет — можно добавить позже) -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Стили -->
   <link rel="stylesheet" href="styles.css?v=2">
+
+  <!-- schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Brand",
+        "@id":"https://rabotysh.ru/#brand",
+        "name":"Работыш",
+        "alternateName":"Rabotysh",
+        "url":"https://rabotysh.ru/",
+        "logo":"https://rabotysh.ru/images/logo.png",
+        "image":"https://rabotysh.ru/images/share-cover.png",
+        "description":"Работыш — мемный кот-офисник: комиксы, стикеры, мерч и вселенная персонажей.",
+        "founder":{"@type":"Person","name":"Степан Панов"},
+        "sameAs":[
+          "https://vk.com/rabotysh",
+          "https://www.tiktok.com/@rabotysh",
+          "https://t.me/rabotysh"
+        ]
+      },
+      {
+        "@type":"WebSite",
+        "@id":"https://rabotysh.ru/#website",
+        "name":"Работыш",
+        "url":"https://rabotysh.ru/",
+        "inLanguage":"ru",
+        "publisher":{"@id":"https://rabotysh.ru/#brand"},
+        "potentialAction":{
+          "@type":"SearchAction",
+          "target":"https://www.google.com/search?q=site%3Arabotysh.ru+{search_term_string}",
+          "query-input":"required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
   <!-- ===== Шапка ===== -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="/" class="logo"><img src="images/logo.png" alt="Работыш"></a>
+      <a href="/" class="logo"><img src="images/logo.png" alt="Работыш" width="127" height="51" decoding="async"></a>
     </div>
   </header>
 
@@ -45,7 +104,7 @@
         </a>
       </div>
       <div class="footer-copy">
-        © 2025 Работыш™ ИП Панов Степан Сергеевич. Все права защищены. · 
+        © 2025 Работыш™ ИП Панов Степан Сергеевич. Все права защищены ·
         <a href="/privacy.html" class="footer-link">Политика обработки данных</a>
       </div>
     </div>
