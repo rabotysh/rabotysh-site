@@ -8,18 +8,15 @@
   <meta name="theme-color" content="#F4EDE4">
   <link rel="canonical" href="https://rabotysh.ru/universe/">
 
-  <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
-  <!-- OG/Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rabotysh.ru/universe/">
   <meta property="og:title" content="Вселенная Работышей">
   <meta property="og:description" content="Коллекция каноничных и фанатских Работышей — от офисных героев до самых неожиданных интерпретаций.">
   <meta property="og:image" content="https://rabotysh.ru/images/share-cover.png">
-  <meta name="twitter:card" content="summary_large_image">
 
   <script src="../version.js"></script>
   <link rel="stylesheet" href="../styles.css?v=2025.10.12.4">
@@ -56,28 +53,21 @@
     <!-- Панель фильтров -->
     <section id="filters" class="filters">
       <div class="container">
-
         <div class="btn-row" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;">
-          <a class="btn-tg" href="https://t.me/rabotysh_universe_bot" target="_blank" rel="noopener">
-            Добавить персонажа (бот в Telegram)
-          </a>
-          <a class="btn-tg" href="../images/template_rabotysh.png" download>
-            Скачать шаблон (PNG)
-          </a>
+          <a class="btn-tg" href="https://t.me/rabotysh_universe_bot" target="_blank" rel="noopener">Добавить персонажа (бот в Telegram)</a>
+          <a class="btn-tg" href="../images/template_rabotysh.png" download>Скачать шаблон (PNG)</a>
         </div>
 
         <div class="filters-bar">
           <div class="filters-left">
             <input id="q" type="search" placeholder="Поиск по имени…">
           </div>
-
           <div class="filters-right">
             <select id="type-by" aria-label="Категория">
               <option value="">Все категории</option>
               <option value="canon">Канон</option>
               <option value="fan">Фан</option>
             </select>
-
             <div class="sort-controls">
               <select id="sort-by" aria-label="Сортировка">
                 <option value="new">По новизне</option>
@@ -85,17 +75,16 @@
               </select>
               <button id="sort-dir" class="sort-toggle" title="Порядок сортировки">▼</button>
             </div>
-
             <button id="reset" class="btn btn-quiet" type="button">Сбросить</button>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Галерея -->
     <section id="gallery" class="gallery">
       <div class="container">
         <div id="grid" class="grid" aria-live="polite"></div>
-        <!-- Важно: этот блок нужен для корректной работы app.js -->
         <div id="empty" class="empty" hidden>Здесь пока пусто.</div>
       </div>
     </section>
@@ -111,12 +100,8 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-left">
-        <a href="https://vk.com/rabotysh" target="_blank" rel="noopener">
-          <img src="../images/vk.png" alt="VK" class="icon" width="32" height="32">
-        </a>
-        <a href="https://www.tiktok.com/@rabotysh" target="_blank" rel="noopener">
-          <img src="../images/tiktok.png" alt="TikTok" class="icon" width="32" height="32">
-        </a>
+        <a href="https://vk.com/rabotysh" target="_blank" rel="noopener"><img src="../images/vk.png" alt="VK" class="icon" width="32" height="32"></a>
+        <a href="https://www.tiktok.com/@rabotysh" target="_blank" rel="noopener"><img src="../images/tiktok.png" alt="TikTok" class="icon" width="32" height="32"></a>
       </div>
       <div class="footer-copy">
         © 2025 Работыш™ ИП Панов Степан Сергеевич. Все права защищены. ·
@@ -125,6 +110,27 @@
     </div>
   </footer>
 
-  <script src="app.js?v=2025.10.121535"></script>
+  <!-- ВАЖНО: модалка для карточек -->
+  <div id="sheet" class="sheet" hidden aria-modal="true" role="dialog">
+    <div class="sheet__backdrop"></div>
+    <div class="sheet__card">
+      <button id="sheet-close" class="sheet__close" type="button">✕</button>
+
+      <div class="sheet__media">
+        <img id="sheet-img" class="sheet__img" alt="">
+      </div>
+
+      <div class="sheet__body">
+        <div class="sheet__title-row">
+          <h3 id="sheet-title" style="margin:0"></h3>
+          <span id="sheet-badge" class="sheet__badge">Канон</span>
+        </div>
+        <div id="sheet-author" class="sheet__meta"></div>
+        <div id="sheet-desc" class="sheet__desc"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=2025.10.12.6"></script>
 </body>
 </html>
