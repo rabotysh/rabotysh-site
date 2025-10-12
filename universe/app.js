@@ -504,8 +504,16 @@ document.addEventListener('DOMContentLoaded', () => {
       img:'../images/krabysh.webp',
       category:'canon',
       date:'2025-10-12',
-      author:'Автор: Степан Пановd',
+      author:'Автор: Степан Панов',
       desc:'ДАРЫ МОРЯ, НЕДОРОГО!'
+    },
+    {
+      name:'Инженерыш',
+      img:'../images/inzhenerysh.webp',
+      category:'canon',
+      date:'2025-10-12',
+      author:'Автор: Степан Панов',
+      desc:'Согласно моим расчётам, нам недоплачивают'
     }
   ];
 
