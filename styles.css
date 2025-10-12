@@ -234,3 +234,80 @@ img.icon{ width:32px; height:32px; object-fit:contain; display:inline-block; }
     text-align:center;
   }
 }
+
+/* =========================================================
+   Enhancements: mobile header fix + lively buttons
+   ========================================================= */
+
+/* 1) Адаптивный фикс шапки: перенос и полноширинные кнопки на мобиле */
+.site-header .header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;              /* позволяем перенос */
+}
+
+.nav-main{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;              /* переносим кнопки */
+}
+
+.nav-main .btn{
+  min-width:140px;             /* было 170px внутри страниц — ужмём на мобиле */
+  padding:10px 14px;
+  white-space:nowrap;
+}
+
+@media (max-width:520px){
+  .nav-main .btn{
+    flex:1 1 100%;             /* каждая кнопка в свою строку */
+    min-width:0;
+    text-align:center;
+  }
+}
+
+/* 2) Лёгкий градиент, hover/active/focus для кнопок */
+.btn{
+  background: linear-gradient(180deg, var(--accent) 0%, #3f5b92 100%);
+  box-shadow: 0 4px 12px rgba(74,104,164,.25);
+  transition: transform .15s ease, box-shadow .2s ease, filter .2s ease, opacity .2s;
+}
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(74,104,164,.28);
+  filter: saturate(1.05);
+}
+.btn:active{
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(74,104,164,.22) inset, 0 2px 6px rgba(0,0,0,.12);
+}
+.btn:focus-visible{
+  outline: 2px solid #9fb4df;
+  outline-offset: 2px;
+}
+
+/* спец-кнопка — тёплый золотистый градиент */
+.btn-special{
+  background: linear-gradient(180deg, #C6A869 0%, #b29253 100%);
+  color:#fff;
+  box-shadow: 0 4px 12px rgba(198,168,105,.22);
+}
+.btn-special:hover{
+  box-shadow: 0 6px 16px rgba(198,168,105,.26);
+  filter: saturate(1.05);
+}
+.btn-special:active{
+  box-shadow: 0 3px 8px rgba(198,168,105,.22) inset, 0 2px 6px rgba(0,0,0,.12);
+}
+
+/* спокойная вторичная */
+.btn-quiet{
+  background: linear-gradient(180deg, #e9eefb 0%, #dbe5fa 100%);
+  color:#1d2f8a;
+  box-shadow: 0 2px 8px rgba(29,47,138,.08);
+}
+.btn-quiet:hover{
+  box-shadow: 0 4px 12px rgba(29,47,138,.10);
+}
