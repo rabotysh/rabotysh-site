@@ -509,7 +509,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       name:'Инженерыш',
-      img:'../images/inzhenerysh.webp',
+      img:'../images/inzhererysh.webp',
       category:'canon',
       date:'2025-10-12',
       author:'Автор: Степан Панов',
