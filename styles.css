@@ -218,3 +218,28 @@ body{
   .filters-right{ grid-template-columns: 1fr; }
   #sort-dir{ display:none; } /* места уже нет — прячем кнопку */
 }
+/* === mobile fine-tune: селект "По новизне" не обрезается === */
+@media (max-width:720px){
+  /* Чуть меньше зазор между элементами */
+  .filters-right{ gap:6px; }
+
+  /* Компоновка: категории ~45%, сортировка ~45%, кнопка 48px */
+  .filters-right{
+    grid-template-columns: minmax(160px, 1fr) minmax(180px, 1fr) 48px;
+  }
+
+  /* Селектам уменьшаем внутренние отступы и шрифт на 1px, чтобы больше текста влезало */
+  #type-by, #sort-by{
+    padding: 0 10px;
+    font-size: 15px;
+  }
+
+  /* Кнопка со стрелкой — фикс ширины */
+  #sort-dir{ width:48px; min-width:48px; }
+}
+
+/* Совсем узкие экраны — всё в столбик (ничего не обрезается) */
+@media (max-width:380px){
+  .filters-right{ grid-template-columns: 1fr; }
+  #sort-dir{ display:none; }
+}
