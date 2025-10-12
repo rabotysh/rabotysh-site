@@ -18,42 +18,28 @@
   <meta property="og:title" content="Работыш — усталый кот, который работает">
   <meta property="og:description" content="Добро пожаловать во Вселенную Работышей 🐾">
   <meta property="og:image" content="https://rabotysh.ru/images/share-cover.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Работыш — усталый кот, который работает">
-  <meta name="twitter:description" content="Добро пожаловать во Вселенную Работышей 🐾">
-  <meta name="twitter:image" content="https://rabotysh.ru/images/share-cover.png">
 
-  <link rel="stylesheet" href="styles.css?v=2025.10.12">
-
-  <!-- локальный фикс центровки кнопки в шапке -->
-  <style>
-    :root { --ctrl-h: 42px; }
-    .nav-main{display:flex;gap:10px;align-items:center}
-    .nav-main .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      height:var(--ctrl-h); line-height:var(--ctrl-h);
-      padding:0 16px; border-radius:12px;
-      text-decoration:none;
-    }
-    /* компактнее на узких экранах */
-    @media (max-width:520px){
-      .btn-ozon{font-size:14px;padding:8px 12px;height:38px;line-height:38px;}
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css?v=2025.10.12.1">
 </head>
 
 <body>
+  <!-- ===== Шапка ===== -->
   <header class="site-header">
-    <div class="container header-inner" style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+    <div class="container header-inner">
       <a href="/" class="logo"><img src="images/logo.png" alt="Работыш"></a>
       <nav class="nav-main">
-        <a class="btn btn-ozon" href="https://ozon.ru/t/h1spjKG" target="_blank" rel="noopener">🛒 Магазин на Ozon</a>
+        <a class="btn btn-ozon" href="https://ozon.ru/t/h1spjKG" target="_blank" rel="noopener">
+          <svg class="ico-cart" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 6h14l-1.5 8.5a2 2 0 0 1-2 1.5H9a2 2 0 0 1-2-1.5L5 4H2" fill="currentColor"/>
+          </svg>
+          <span>Магазин на Ozon</span>
+        </a>
       </nav>
     </div>
   </header>
 
+  <!-- ===== Главный блок ===== -->
   <main>
     <section class="hero">
       <div class="container hero-inner" style="text-align:center;">
@@ -67,14 +53,15 @@
     </section>
   </main>
 
+  <!-- ===== Подвал ===== -->
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-left">
         <a href="https://vk.com/rabotysh" target="_blank" rel="noopener">
-          <img src="images/vk.png" alt="VK" class="icon" width="32" height="32" loading="lazy" decoding="async">
+          <img src="images/vk.png" alt="VK" class="icon" width="32" height="32">
         </a>
         <a href="https://www.tiktok.com/@rabotysh" target="_blank" rel="noopener">
-          <img src="images/tiktok.png" alt="TikTok" class="icon" width="32" height="32" loading="lazy" decoding="async">
+          <img src="images/tiktok.png" alt="TikTok" class="icon" width="32" height="32">
         </a>
       </div>
       <div class="footer-copy">
