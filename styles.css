@@ -395,3 +395,64 @@ body{
     display: none;
   }
 }
+/* === FIX: мобильная строка сортировки со стрелкой === */
+@media (max-width: 720px){
+  /* Вся вторая строка — две колонки: категории | сортировка+стрелка */
+  .filters-right{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    margin: 0;
+    align-items: stretch;
+  }
+
+  /* Блок сортировки: селект + квадратная кнопка со стрелкой */
+  .sort-controls{
+    display: flex;               /* одна строка */
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+  }
+
+  /* Селект «По новизне» занимает всё оставшееся */
+  #sort-by{
+    flex: 1 1 auto;
+    height: var(--ctrl-h);
+    padding: 0 12px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+    font: inherit;
+  }
+
+  /* Стрелка — фиксированная ширина, не вылезает за бокс */
+  #sort-dir{
+    flex: 0 0 48px;
+    width: 48px;
+    height: var(--ctrl-h);
+    display: flex !important;    /* вернуть, если где-то скрылась */
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  /* Кнопка «Сбросить» — отдельной строкой на всю ширину */
+  #reset{
+    grid-column: 1 / -1;
+    width: 100%;
+    height: calc(var(--ctrl-h) + 8px);
+    border-radius: 14px;
+    box-sizing: border-box;
+  }
+}
+
+/* ВАЖНО: убираем старое правило, которое скрывало стрелку на очень узких экранах */
+@media (max-width: 400px){
+  #sort-dir{ display: flex !important; }  /* не скрывать */
+}
