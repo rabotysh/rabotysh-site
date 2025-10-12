@@ -1,400 +1,265 @@
-:root{
-  --bg:#F4EDE4; 
-  --card:#fff; 
-  --text:#2B2F33; 
-  --muted:#6C7177; 
-  --accent:#4A68A4; /* фирменный синий */
-  --radius:18px; 
-  --shadow:0 10px 24px rgba(0,0,0,.06);
+:root {
+  --bg: #F4EDE4;
+  --card: #fff;
+  --text: #2B2F33;
+  --muted: #6C7177;
+  --accent: #4A68A4; /* фирменный синий */
+  --radius: 18px;
+  --shadow: 0 10px 24px rgba(0,0,0,.06);
+  --ctrl-h: 42px;
 }
 
-/* base */
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+/* ===== Базовые элементы ===== */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
-.container{max-width:1100px;margin:0 auto;padding:0 16px}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 
-/* header */
-.site-header{
-  position:sticky; top:0; z-index:50;
-  background:rgba(255,255,255,.7);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid #e9e3da;
+/* ===== Шапка ===== */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.7);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e9e3da;
 }
-.header-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 16px}
-.logo img{height:42px;width:auto;display:block}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  flex-wrap: nowrap;
+}
+.logo img { height: 42px; width: auto; display: block; }
 
-/* hero */
-.hero{
-  padding:56px 0;
-  background:radial-gradient(1000px 400px at 50% -100px,rgba(74,104,164,.10),transparent);
-}
-.hero h1{font-size:42px;margin:0 0 8px}
-.lead{color:var(--muted)}
-.hero-actions{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-
-/* buttons */
-.btn{
-  background:var(--accent);
-  color:#fff;
-  border:none;
-  border-radius:12px;
-  padding:10px 14px;
-  font-weight:600;
-  text-decoration:none;
-  transition:opacity .2s, transform .15s;
-}
-.btn:hover{
-  opacity:.9;
-  transform:translateY(-1px);
-}
-.btn-quiet{
-  background:#e9eefb;
-  color:#1d2f8a;
-}
-.btn-special{
-  background:#C6A869;
-  color:#fff;
+/* Кнопки в шапке */
+.nav-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
 }
 
-/* filters */
-.filters{padding:20px 0}
-.filters-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.search input,.selects select{
-  padding:10px 12px;
-  border-radius:12px;
-  border:1px solid #ddd;
-  background:#fff;
+.nav-main .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--ctrl-h);
+  padding: 0 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(180deg, #4A68A4 0%, #3D5991 100%);
+  box-shadow: 0 4px 10px rgba(0,0,0,.08);
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform .15s ease, opacity .2s ease, box-shadow .3s ease;
 }
-.pills{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
-.pill{
-  background:#fff;
-  border:1px solid #e6e2da;
-  border-radius:999px;
-  padding:8px 12px;
-  cursor:pointer;
-}
-
-/* gallery */
-.gallery{padding:20px 0 48px}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:16px;
-}
-.card{
-  background:var(--card);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  overflow:hidden;
-  transition:transform .15s ease;
-}
-.card:hover{transform:translateY(-3px)}
-.thumb{width:100%;aspect-ratio:4/5;object-fit:cover;background:#f5f1ea}
-.card-body{padding:12px}
-.card h3{margin:0 0 4px;font-size:16px}
-.desc{
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.4;
-  -webkit-line-clamp:2;
-  display:-webkit-box;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-}
-.meta{
-  margin-top:8px;
-  font-size:12px;
-  color:#61656b;
-  display:flex;
-  gap:6px;
-  flex-wrap:wrap;
-}
-.meta .chip{
-  background:#f1eee8;
-  border:1px solid #e7e1d9;
-  border-radius:8px;
-  padding:2px 8px;
-}
-
-/* about */
-.about{padding:40px 0;border-top:1px solid #e9e3da}
-.about h2{font-size:28px;margin-bottom:10px}
-.about .muted{color:var(--muted)}
-
-/* footer universal */
-.footer{
-  border-top:1px solid #e9e3da;
-  background:rgba(255,255,255,.5);
-  padding:24px 0;
-}
-.footer-inner{
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  gap:16px;
-  flex-wrap:wrap;
-  color:#6C7177;
-  font-size:14px;
-}
-.footer-left{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.footer-copy{
-  margin-left:8px;
-  line-height:1.4;
-}
-.footer .icon{
-  width:32px;
-  height:32px;
-  opacity:0.85;
-  transition:opacity .2s, transform .2s;
-}
-.footer .icon:hover{
-  opacity:1;
-  transform:scale(1.1);
-}
-
-/* 📱 mobile footer layout */
-@media (max-width:720px){
-  .footer-inner{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:6px;
-  }
-  .footer-copy{
-    margin-left:0;
-  }
-}
-
-/* insurance: any .icon */
-img.icon{ width:32px; height:32px; object-fit:contain; display:inline-block; }
-
-/* mobile tweaks */
-@media (max-width:720px){
-  .logo img{height:36px}
-  .hero{padding:32px 0}
-  .hero h1{font-size:28px}
-  .lead{font-size:14px}
-}
-
-/* modal */
-.rb-modal{
-  width:min(920px, calc(100% - 24px));
-  border:none;
-  border-radius:18px;
-  padding:0;
-  box-shadow:0 20px 60px rgba(0,0,0,.25);
-}
-.rb-modal::backdrop{ background:rgba(0,0,0,.35); }
-.rb-modal__close{
-  position:absolute; right:10px; top:10px;
-  background:#fff; border:1px solid #e9e3da; border-radius:10px;
-  padding:6px 10px; cursor:pointer;
-}
-.rb-modal__body{ display:flex; gap:16px; padding:16px; }
-.rb-modal__media img{ max-width:360px; width:100%; height:auto; border-radius:14px; background:#f5f1ea; }
-.rb-modal__meta{ flex:1; min-width:0; }
-@media (max-width:720px){
-  .rb-modal__body{ flex-direction:column; }
-  .rb-modal__media img{ max-width:100%; }
-}
-
-/* Telegram button */
-.btn-tg {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  background:#4A68A4;
-  color:#fff;
-  font-weight:700;
-  border:none;
-  border-radius:12px;
-  height:var(--ctrl-h);
-  line-height:var(--ctrl-h);
-  padding:0 16px;
-  margin:0 0 12px 0;
-  text-decoration:none;
-  transition:opacity .2s;
-  box-sizing:border-box;
-}
-.btn-tg:hover { opacity:.92; }
-
-/* 📱 full-width Telegram button on mobile */
-@media (max-width:720px) {
-  .btn-tg {
-    display:block;
-    width:100%;
-    text-align:center;
-  }
-}
-
-/* =========================================================
-   Enhancements: mobile header fix + lively buttons
-   ========================================================= */
-
-/* 1) Адаптивный фикс шапки: перенос и полноширинные кнопки на мобиле */
-.site-header .header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;              /* позволяем перенос */
-}
-
-.nav-main{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;              /* переносим кнопки */
-}
-
-.nav-main .btn{
-  min-width:140px;             /* было 170px внутри страниц — ужмём на мобиле */
-  padding:10px 14px;
-  white-space:nowrap;
-}
-
-@media (max-width:520px){
-  .nav-main .btn{
-    flex:1 1 100%;             /* каждая кнопка в свою строку */
-    min-width:0;
-    text-align:center;
-  }
-}
-
-/* 2) Лёгкий градиент, hover/active/focus для кнопок */
-.btn{
-  background: linear-gradient(180deg, var(--accent) 0%, #3f5b92 100%);
-  box-shadow: 0 4px 12px rgba(74,104,164,.25);
-  transition: transform .15s ease, box-shadow .2s ease, filter .2s ease, opacity .2s;
-}
-.btn:hover{
+.nav-main .btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(74,104,164,.28);
-  filter: saturate(1.05);
-}
-.btn:active{
-  transform: translateY(0);
-  box-shadow: 0 3px 8px rgba(74,104,164,.22) inset, 0 2px 6px rgba(0,0,0,.12);
-}
-.btn:focus-visible{
-  outline: 2px solid #9fb4df;
-  outline-offset: 2px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.15);
+  opacity: .95;
 }
 
-/* спец-кнопка — тёплый золотистый градиент */
-.btn-special{
-  background: linear-gradient(180deg, #C6A869 0%, #b29253 100%);
-  color:#fff;
-  box-shadow: 0 4px 12px rgba(198,168,105,.22);
+.nav-main .btn-icon {
+  width: var(--ctrl-h);
+  min-width: var(--ctrl-h);
+  padding: 0;
+  justify-content: center;
 }
-.btn-special:hover{
-  box-shadow: 0 6px 16px rgba(198,168,105,.26);
-  filter: saturate(1.05);
-}
-.btn-special:active{
-  box-shadow: 0 3px 8px rgba(198,168,105,.22) inset, 0 2px 6px rgba(0,0,0,.12);
+.nav-main .btn-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: #fff;
 }
 
-/* спокойная вторичная */
-.btn-quiet{
-  background: linear-gradient(180deg, #e9eefb 0%, #dbe5fa 100%);
-  color:#1d2f8a;
-  box-shadow: 0 2px 8px rgba(29,47,138,.08);
+.nav-main .btn-ozon {
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
-.btn-quiet:hover{
-  box-shadow: 0 4px 12px rgba(29,47,138,.10);
-}
-/* --- header buttons: home icon + compact ozon on mobile --- */
-.btn-icon{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:44px;                 /* квадратная кнопка */
-  min-width:44px;
-  height:var(--ctrl-h);
-  padding:0;                  /* без внутренних отступов */
+.nav-main .btn-ozon .ico-cart {
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+  flex-shrink: 0;
 }
 
-.btn-icon svg{
-  width:20px; height:20px;    /* размер иконки */
-  fill:#fff;
+/* узкий экран — прячем тележку, чтобы текст не обрезался */
+@media (max-width: 390px) {
+  .nav-main .btn-ozon { font-size: 14px; padding: 0 10px; }
+  .nav-main .btn-ozon .ico-cart { display: none; }
 }
 
-.btn-ozon{
-  /* базово такой же размер, но можно дать микро-ужатие текста */
+/* ===== Герой ===== */
+.hero {
+  padding: 56px 0;
+  background: radial-gradient(1000px 400px at 50% -100px, rgba(74,104,164,.10), transparent);
+}
+.hero h1 { font-size: 42px; margin: 0 0 8px; }
+.lead { color: var(--muted); }
+.hero-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-@media (max-width:520px){
-  .nav-main .btn{ min-width:auto; }
-  .btn-ozon{
-    font-size:14px;           /* было ~16 — делаем компактнее на мобиле */
-    padding:8px 12px;         /* чуть меньше отступы */
-    height:38px;              /* немного ниже, чтобы влезать рядом с домиком */
-    line-height:38px;
-  }
-  .btn-icon{
-    height:38px;              /* выровнять по высоте с .btn-ozon */
-  }
+/* ===== Кнопки ===== */
+.btn {
+  background: linear-gradient(180deg, #4A68A4 0%, #3D5991 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .15s, box-shadow .2s, opacity .2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,.08);
 }
-/* --- HOTFIX: header buttons: keep in one row, center content --- */
-:root{ --ctrl-h: 42px; }
-
-.site-header .header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:nowrap;                /* не переносим логотип и навигацию */
+.btn:hover {
+  opacity: .95;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.15);
 }
-
-.nav-main{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  flex-wrap:nowrap;                /* держим кнопки в одну строку */
+.btn-quiet {
+  background: #e9eefb;
+  color: #1d2f8a;
+}
+.btn-special {
+  background: linear-gradient(180deg, #C6A869 0%, #B8964F 100%);
+  color: #fff;
 }
 
-.nav-main .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  height:38px;                     /* компактнее, одинаковая высота */
-  line-height:38px;
-  padding:0 12px;
-  border-radius:12px;
-  min-width:0;                     /* можно сжиматься */
-  white-space:nowrap;              /* не ломаем надпись */
+/* ===== Telegram / шаблон ===== */
+.btn-tg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #4A68A4 0%, #3D5991 100%);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  height: var(--ctrl-h);
+  line-height: var(--ctrl-h);
+  padding: 0 16px;
+  margin: 0 0 12px 0;
+  text-decoration: none;
+  transition: transform .15s, box-shadow .2s;
+}
+.btn-tg:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0,0,0,.12);
 }
 
-.btn-icon{
-  width:38px;
-  min-width:38px;
-  height:38px;
-  line-height:38px;
-  padding:0;
+/* ===== Галерея ===== */
+.gallery { padding: 20px 0 48px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
 }
-.btn-icon svg{ width:18px; height:18px; fill:#fff; }
-
-/* магазин: чуть меньше шрифт и отступы на мобиле */
-.btn-ozon{ font-size:15px; }
-@media (max-width:520px){
-  .btn-ozon{ font-size:14px; padding:0 10px; }
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform .15s ease;
+}
+.card:hover { transform: translateY(-3px); }
+.thumb { width: 100%; aspect-ratio: 4/5; object-fit: cover; background: #f5f1ea; }
+.card-body { padding: 12px; }
+.card h3 { margin: 0 0 4px; font-size: 16px; }
+.desc {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.meta {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #61656b;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.meta .chip {
+  background: #f1eee8;
+  border: 1px solid #e7e1d9;
+  border-radius: 8px;
+  padding: 2px 8px;
 }
 
-/* иконка тележки внутри кнопки */
-.btn-ozon .ico-cart{
-  width:18px; height:18px; fill:#fff; margin-right:8px; flex:0 0 auto;
+/* ===== О проекте ===== */
+.about { padding: 40px 0; border-top: 1px solid #e9e3da; }
+.about h2 { font-size: 28px; margin-bottom: 10px; }
+.about .muted { color: var(--muted); }
+
+/* ===== Подвал ===== */
+.footer {
+  border-top: 1px solid #e9e3da;
+  background: rgba(255,255,255,.5);
+  padding: 24px 0;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: #6C7177;
+  font-size: 14px;
+}
+.footer-left { display: flex; align-items: center; gap: 10px; }
+.footer-copy { margin-left: 8px; line-height: 1.4; }
+.footer .icon {
+  width: 32px; height: 32px; opacity: 0.85;
+  transition: opacity .2s, transform .2s;
+}
+.footer .icon:hover { opacity: 1; transform: scale(1.1); }
+
+/* ===== Адаптив ===== */
+@media (max-width: 720px) {
+  .logo img { height: 36px; }
+  .hero { padding: 32px 0; }
+  .hero h1 { font-size: 28px; }
+  .lead { font-size: 14px; }
+
+  .btn-tg { width: 100%; text-align: center; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .footer-copy { margin-left: 0; }
 }
 
-/* на очень узких — прячем иконку, оставляем текст */
-@media (max-width:390px){
-  .btn-ozon .ico-cart{ display:none; }
+/* ===== Дополнительно: модальное окно ===== */
+.rb-modal {
+  width: min(920px, calc(100% - 24px));
+  border: none;
+  border-radius: 18px;
+  padding: 0;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
 }
-
+.rb-modal::backdrop { background: rgba(0,0,0,.35); }
+.rb-modal__close {
+  position: absolute; right: 10px; top: 10px;
+  background: #fff; border: 1px solid #e9e3da;
+  border-radius: 10px; padding: 6px 10px; cursor: pointer;
+}
+.rb-modal__body { display: flex; gap: 16px; padding: 16px; }
+.rb-modal__media img { max-width: 360px; width: 100%; height: auto; border-radius: 14px; background: #f5f1ea; }
+.rb-modal__meta { flex: 1; min-width: 0; }
+@media (max-width: 720px) {
+  .rb-modal__body { flex-direction: column; }
+  .rb-modal__media img { max-width: 100%; }
+}
