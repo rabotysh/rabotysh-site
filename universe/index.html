@@ -134,34 +134,3 @@
   <script src="app.js?v=2025.10.12.6"></script>
 </body>
 </html>
-/* === FIX: кнопка "Сбросить" и стрелка не выходят за белый бокс === */
-@media (max-width:720px){
-  .filters-bar,
-  .filters-left input[type="search"],
-  #type-by, #sort-by,
-  #sort-dir,
-  #reset {
-    box-sizing: border-box; /* всё учитывает padding+border */
-    max-width: 100%;
-  }
-
-  /* небольшое выравнивание паддингов, чтобы не "толкали" друг друга */
-  .filters-bar {
-    padding: 10px 10px 12px 10px;
-  }
-
-  /* грид для правой части — аккуратный без переполнений */
-  .filters-right {
-    display: grid;
-    grid-template-columns: 1fr 1fr 48px;
-    gap: 8px;
-    width: 100%;
-  }
-
-  /* кнопка сброса строго внутри, без переполнения */
-  #reset {
-    grid-column: 1 / -1;
-    width: 100%;
-    justify-self: stretch;
-  }
-}
