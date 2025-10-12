@@ -418,6 +418,94 @@ document.addEventListener('DOMContentLoaded', () => {
       date:'2025-10-10',
       author:'Автор: dimaagay',
       desc:'Пирсинг, тату, цветные волосы - значит кофе точно будет вкусный'
+    },
+    {
+      name:'Инопланетыш',
+      img:'../images/inoplanetysh.webp',
+      category:'canon',
+      date:'2025-10-12',
+      author:'Автор: Степан Панов',
+      desc:'Zip zip zap'
+    },
+    {
+      name:'Вожатыш',
+      img:'../images/vozhatysh.webp',
+      category:'fan',
+      date:'2025-10-12',
+      author:'Автор: DasPruss',
+      desc:'Он вожатый, он устал, он здесь ради вайба'
+    },
+    {
+      name:'Литературыш',
+      img:'../images/literaturysh.webp',
+      category:'fan',
+      date:'2025-10-12',
+      author:'Автор: мила музыка',
+      desc:'В смысле был ещё один Сенека?…..'
+    },
+    {
+      name:'Нефорыш',
+      img:'../images/neforysh.webp',
+      category:'fan',
+      date:'2025-10-12',
+      author:'Автор: frontallobedestroyer228',
+      desc:'Источник дохода Нефорыша неизвестен даже Зажигалышу…'
+    },
+    {
+      name:'Художныш',
+      img:'../images/hudozhnysh.webp',
+      category:'fan',
+      date:'2025-10-12',
+      author:'Автор: @pauline_nicol',
+      desc:'Перед вами художныш :) Несмотря на то, что он носит комбинезон - всё равно перепачкался в краске. Художныш живет совсем небогато, но это не мешает ему быть преданным своему делу'
+    },
+    {
+      name:'Зелёныш',
+      img:'../images/zelyonysh.webp',
+      category:'fan',
+      date:'2025-10-12',
+      author:'Автор: glowstick',
+      desc:'Любит зИлЕнИй цвет своей ковточки'
+    },
+    {
+      name:'Пионерыш',
+      img:'../images/bpionerysh.webp',
+      category:'fan',
+      date:'2025-10-12',
+      author:'Автор: Ксения Панова',
+      desc:'Никогда не готов'
+    },
+    {
+      name:'Эмыш',
+      img:'../images/emysh.webp',
+      category:'fan',
+      date:'2025-10-12',
+      author:'Автор: Ксения Панова',
+      desc:'Втайне слушает Ранеток'
+    },
+    {
+      name:'Готыш',
+      img:'../images/gotysh.webp',
+      category:'fan',
+      date:'2025-10-12',
+      author:'Автор: Ксения Панова',
+      desc:'Его душа чернее ночи, априори'
+    },
+    {
+      name:'Гламурыш',
+      img:'../images/glamurysh.webp',
+      category:'fan',
+      date:'2025-10-12',
+      author:'Автор: Ксеникс',
+      desc:' Я такая розовая, блин класс'
+    },
+    {
+      name:'Крабыш',
+      img:'../images/krabysh.webp',
+      category:'canon',
+      date:'2025-10-12',
+      author:'Автор: Степан Пановd',
+      desc:'ДАРЫ МОРЯ, НЕДОРОГО!'
     }
   ];
 
