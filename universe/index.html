@@ -48,7 +48,10 @@
     }
     .sort-toggle:hover{ background:#f3f2ef; }
 
-    /* ===== Кнопка Telegram ===== */
+    /* ===== Кнопки над фильтрами ===== */
+    .btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px; }
+
+    /* ===== Кнопка Telegram / Скачать шаблон ===== */
     .btn-tg {
       display:inline-flex;
       align-items:center;
@@ -61,7 +64,6 @@
       height:var(--ctrl-h);
       line-height:var(--ctrl-h);
       padding:0 16px;
-      margin:0 0 12px 0;
       text-decoration:none;
       transition:opacity .2s;
       box-sizing:border-box;
@@ -150,10 +152,15 @@
     <section id="filters" class="filters">
       <div class="container">
 
-        <!-- 🟦 Кнопка к боту -->
-        <a class="btn-tg" href="https://t.me/rabotysh_universe_bot" target="_blank" rel="noopener">
-          Добавить персонажа (бот в Telegram)
-        </a>
+        <!-- 🟦 Кнопки: к боту + скачать шаблон -->
+        <div class="btn-row">
+          <a class="btn-tg" href="https://t.me/rabotysh_universe_bot" target="_blank" rel="noopener">
+            Добавить персонажа (бот в Telegram)
+          </a>
+          <a class="btn-tg" href="../images/template_rabotysh.png" download>
+            Скачать шаблон (PNG)
+          </a>
+        </div>
 
         <div class="filters-bar">
           <div class="filters-left">
