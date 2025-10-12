@@ -6,20 +6,20 @@
   --accent:#4A68A4;
   --radius:18px;
   --shadow:0 10px 24px rgba(0,0,0,.06);
-  --ctrl-h:42px; /* базовая высота контролов */
+  --ctrl-h:42px;
 }
 
-/* ===== base ===== */
+/* base */
 *{box-sizing:border-box}
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 .container{max-width:1100px;margin:0 auto;padding:0 16px}
 
-/* ===== header ===== */
+/* header */
 .site-header{
   position:sticky;top:0;z-index:50;
   background:rgba(255,255,255,.7);
@@ -32,7 +32,7 @@ body{
 }
 .logo img{height:42px;width:auto;display:block}
 
-/* header buttons (compact) */
+/* header buttons */
 .nav-main{display:flex;align-items:center;gap:10px;flex-wrap:nowrap}
 .nav-main .btn{
   display:inline-flex;align-items:center;justify-content:center;
@@ -52,7 +52,7 @@ body{
   .nav-main .btn-ozon .ico-cart{display:none}
 }
 
-/* ===== hero ===== */
+/* hero */
 .hero{
   padding:56px 0;
   background:radial-gradient(1000px 400px at 50% -100px,rgba(74,104,164,.10),transparent);
@@ -61,7 +61,7 @@ body{
 .lead{color:var(--muted)}
 .hero-actions{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 
-/* ===== buttons (general) ===== */
+/* buttons (general) */
 .btn{
   background:linear-gradient(180deg,#4A68A4 0%,#3D5991 100%);
   color:#fff;border:none;border-radius:12px;padding:10px 16px;font-weight:600;
@@ -72,7 +72,7 @@ body{
 .btn-quiet{background:#e9eefb;color:#1d2f8a;box-shadow:none}
 .btn-special{background:linear-gradient(180deg,#C6A869 0%,#B8964F 100%);color:#fff}
 
-/* ===== FILTERS ===== */
+/* filters */
 .filters{padding:20px 0}
 .filters-bar{
   display:flex;align-items:center;gap:12px;flex-wrap:wrap;
@@ -81,6 +81,7 @@ body{
 }
 .filters-left{display:flex;align-items:center;gap:12px;flex:1 1 420px;min-width:260px}
 .filters-right{display:flex;align-items:center;gap:10px;margin-left:auto;flex:0 1 auto}
+
 .filters-bar input[type="search"],
 .filters-bar select,.filters-bar .btn,.sort-toggle{
   height:var(--ctrl-h);padding:0 12px;border-radius:10px;border:1px solid #ddd;background:#fff;font:inherit
@@ -90,7 +91,74 @@ body{
 .sort-toggle{background:#fff;border:1px solid #ddd;cursor:pointer;font-size:18px;line-height:1;padding:4px 10px}
 .sort-toggle:hover{background:#f3f2ef}
 
-/* ===== gallery ===== */
+/* ===== MOBILE filters (3 колонки: категория | сортировка | стрелка) ===== */
+@media (max-width:720px){
+  .filters-bar{
+    padding:12px;
+  }
+
+  /* Поиск — отдельной строкой */
+  .filters-left{
+    flex:1 1 100%;
+    margin:0 0 8px 0;
+  }
+  .filters-left input[type="search"]{
+    width:100%;
+  }
+
+  /* Правая часть: три колонки — [категория][сортировка][стрелка] */
+  .filters-right{
+    display:grid;
+    grid-template-columns: 1fr 1fr 48px;
+    gap:8px;
+    width:100%;
+    margin-left:0;
+    align-items:stretch;
+  }
+
+  #type-by,
+  #sort-by{
+    width:100%;
+    min-height:var(--ctrl-h);
+    font-size:15px;
+    box-sizing:border-box;
+  }
+
+  /* Кнопка со стрелкой отдельной колонкой */
+  #sort-dir{
+    width:48px;
+    min-width:48px;
+    padding:0;
+    height:var(--ctrl-h);
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #ddd;
+    border-radius:10px;
+    background:#fff;
+    cursor:pointer;
+  }
+
+  /* Кнопка "Сбросить" — на новой строке на всю ширину */
+  #reset{
+    grid-column: 1 / -1;
+    width:100%;
+    justify-self:stretch;
+    box-sizing:border-box;
+  }
+}
+
+/* Очень узкие экраны — всё по одному */
+@media (max-width:420px){
+  .filters-right{
+    grid-template-columns: 1fr;
+  }
+  #sort-dir{
+    display:none;
+  }
+}
+
+/* gallery */
 .gallery{padding:20px 0 48px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
 .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:transform .15s ease}
@@ -102,15 +170,15 @@ body{
 .meta{margin-top:8px;font-size:12px;color:#61656b;display:flex;gap:6px;flex-wrap:wrap}
 .meta .chip{background:#f1eee8;border:1px solid #e7e1d9;border-radius:8px;padding:2px 8px}
 
-/* ===== about ===== */
+/* about */
 .about{padding:40px 0;border-top:1px solid #e9e3da}
 .about h2{font-size:28px;margin-bottom:10px}
 .about .muted{color:var(--muted)}
 
-/* ===== empty state ===== */
+/* empty state */
 .empty{margin:20px 0 0;color:var(--muted);text-align:center;font-size:14px}
 
-/* ===== footer ===== */
+/* footer */
 .footer{border-top:1px solid #e9e3da;background:rgba(255,255,255,.5);padding:24px 0}
 .footer-inner{display:flex;align-items:center;justify-content:flex-start;gap:16px;flex-wrap:wrap;color:#6C7177;font-size:14px}
 .footer-left{display:flex;align-items:center;gap:10px}
@@ -118,15 +186,29 @@ body{
 .footer .icon{width:32px;height:32px;opacity:.85;transition:opacity .2s,transform .2s}
 .footer .icon:hover{opacity:1;transform:scale(1.1)}
 
-/* ===== modal (если используется) ===== */
+/* mobile tweaks */
+@media (max-width:720px){
+  .logo img{height:36px}
+  .hero{padding:32px 0}
+  .hero h1{font-size:28px}
+  .lead{font-size:14px}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:6px}
+  .footer-copy{margin-left:0}
+}
+
+/* modal */
 .rb-modal{width:min(920px,calc(100% - 24px));border:none;border-radius:18px;padding:0;box-shadow:0 20px 60px rgba(0,0,0,.25)}
 .rb-modal::backdrop{background:rgba(0,0,0,.35)}
 .rb-modal__close{position:absolute;right:10px;top:10px;background:#fff;border:1px solid #e9e3da;border-radius:10px;padding:6px 10px;cursor:pointer}
 .rb-modal__body{display:flex;gap:16px;padding:16px}
 .rb-modal__media img{max-width:360px;width:100%;height:auto;border-radius:14px;background:#f5f1ea}
 .rb-modal__meta{flex:1;min-width:0}
+@media (max-width:720px){
+  .rb-modal__body{flex-direction:column}
+  .rb-modal__media img{max-width:100%}
+}
 
-/* ===== Telegram button (reused) ===== */
+/* Telegram button */
 .btn-tg{
   display:inline-flex;align-items:center;justify-content:center;
   background:linear-gradient(180deg,#4A68A4 0%,#3D5991 100%);
@@ -136,203 +218,6 @@ body{
   transition:transform .15s,box-shadow .2s
 }
 .btn-tg:hover{transform:translateY(-1px);box-shadow:0 6px 12px rgba(0,0,0,.12)}
-
-/* =========================================================
-   MOBILE — аккуратная, читабельная панель фильтров
-   ========================================================= */
 @media (max-width:720px){
-  .logo img{height:36px}
-  .hero{padding:32px 0}
-  .hero h1{font-size:28px}
-  .lead{font-size:14px}
-  .footer-inner{flex-direction:column;align-items:flex-start;gap:6px}
-  .footer-copy{margin-left:0}
-
-  .filters-bar{padding:12px}
-
-  /* поиск — отдельной строкой */
-  .filters-left{
-    flex:1 1 100%;
-    margin:0 0 10px 0;
-  }
-  .filters-left input[type="search"]{width:100%}
-
-  /* селекты — каждый на всю ширину, без обрезания текста */
-  .filters-right{
-    flex:1 1 100%;
-    margin-left:0;
-    display:grid;
-    grid-template-columns: 1fr;
-    gap:10px;
-    align-items:stretch;
-  }
-  #type-by, #sort-by{width:100%;min-height:var(--ctrl-h)}
-  #sort-dir{display:none}        /* стрелка не нужна на мобиле */
-  #reset{width:100%}             /* «Сбросить» — шириной во всю строку */
-}
-
-@media (max-width:720px){
-  .rb-modal__body{flex-direction:column}
-  .rb-modal__media img{max-width:100%}
-}
-/* === MOBILE FILTERS: одна строка (категория | сортировка | ▼), Reset ниже === */
-@media (max-width:720px){
-  .filters-bar{ padding:12px; }
-
-  /* Поиск — отдельной строкой на всю ширину */
-  .filters-left{ flex:1 1 100%; margin:0 0 8px 0; }
-  .filters-left input[type="search"]{ width:100%; }
-
-  /* Три колонки: кат | сорт | кнопка ▼ */
-  .filters-right{
-    flex:1 1 100%;
-    margin-left:0;
-    display:grid;
-    grid-template-columns: minmax(0,1fr) minmax(0,1fr) 48px;
-    gap:8px;
-    align-items:stretch;
-  }
-
-  /* Селекты растягиваются и не обрезают текст */
-  #type-by, #sort-by{
-    width:100%; min-width:0; min-height:var(--ctrl-h);
-  }
-
-  /* Маленькая кнопка со стрелкой */
-  #sort-dir{
-    width:48px; min-width:48px; height:var(--ctrl-h);
-    padding:0; line-height:var(--ctrl-h);
-    display:inline-flex; align-items:center; justify-content:center;
-    border:1px solid #ddd; border-radius:10px; background:#fff;
-  }
-
-  /* Сбросить — новой строкой на всю ширину */
-  #reset{
-    grid-column:1 / -1; width:100%;
-    justify-self:stretch;
-  }
-}
-
-/* На очень узких экранах — уходим в одну колонку */
-@media (max-width:380px){
-  .filters-right{ grid-template-columns: 1fr; }
-  #sort-dir{ display:none; } /* места уже нет — прячем кнопку */
-}
-/* === mobile fine-tune: селект "По новизне" не обрезается === */
-@media (max-width:720px){
-  /* Чуть меньше зазор между элементами */
-  .filters-right{ gap:6px; }
-
-  /* Компоновка: категории ~45%, сортировка ~45%, кнопка 48px */
-  .filters-right{
-    grid-template-columns: minmax(160px, 1fr) minmax(180px, 1fr) 48px;
-  }
-
-  /* Селектам уменьшаем внутренние отступы и шрифт на 1px, чтобы больше текста влезало */
-  #type-by, #sort-by{
-    padding: 0 10px;
-    font-size: 15px;
-  }
-
-  /* Кнопка со стрелкой — фикс ширины */
-  #sort-dir{ width:48px; min-width:48px; }
-}
-
-/* Совсем узкие экраны — всё в столбик (ничего не обрезается) */
-@media (max-width:380px){
-  .filters-right{ grid-template-columns: 1fr; }
-  #sort-dir{ display:none; }
-}
-/* === FIX: кнопка "Сбросить" и стрелка не выходят за белый бокс === */
-@media (max-width:720px){
-  .filters-bar,
-  .filters-left input[type="search"],
-  #type-by, #sort-by,
-  #sort-dir,
-  #reset {
-    box-sizing: border-box; /* всё учитывает padding+border */
-    max-width: 100%;
-  }
-
-  /* небольшое выравнивание паддингов, чтобы не "толкали" друг друга */
-  .filters-bar {
-    padding: 10px 10px 12px 10px;
-  }
-
-  /* грид для правой части — аккуратный без переполнений */
-  .filters-right {
-    display: grid;
-    grid-template-columns: 1fr 1fr 48px;
-    gap: 8px;
-    width: 100%;
-  }
-
-  /* кнопка сброса строго внутри, без переполнения */
-  #reset {
-    grid-column: 1 / -1;
-    width: 100%;
-    justify-self: stretch;
-  }
-}
-/* === MOBILE FILTERS — 2 равные колонки, стрелка поверх селекта === */
-@media (max-width:720px){
-  /* строка фильтров: 2 колонки одинаковой ширины */
-  .filters-right{
-    display:grid;
-    grid-template-columns: 1fr 1fr; /* [Все категории] | [По новизне] */
-    gap:8px;
-    width:100%;
-    margin-left:0;
-    align-items:stretch;
-  }
-
-  /* группа сортировки — контейнер для селекта и кнопки-стрелки */
-  .sort-controls{
-    position:relative; /* чтобы позиционировать стрелку внутри */
-    width:100%;
-  }
-
-  /* селект сортировки: отступ справа под стрелку */
-  #sort-by{
-    width:100%;
-    min-height:var(--ctrl-h);
-    padding-right:48px; /* место для кнопки ▼ */
-    box-sizing:border-box;
-    font-size:15px;
-  }
-
-  /* кнопка-стрелка: поверх селекта, не занимает колонку */
-  #sort-dir{
-    position:absolute;
-    top:0; right:4px;
-    height:var(--ctrl-h);
-    width:44px;
-    display:inline-flex;
-    align-items:center; justify-content:center;
-    padding:0; margin:0;
-    border:1px solid #ddd; border-radius:10px; background:#fff;
-    box-sizing:border-box;
-  }
-
-  /* селект категорий — на всю доступную ширину своей колонки */
-  #type-by{
-    width:100%;
-    min-height:var(--ctrl-h);
-    box-sizing:border-box;
-    font-size:15px;
-  }
-
-  /* Сбросить — новой строкой на всю ширину бокса */
-  #reset{
-    grid-column:1 / -1;
-    width:100%;
-    justify-self:stretch;
-    box-sizing:border-box;
-  }
-}
-
-/* на сверхузких (<=380px) — уходим в столбик, стрелку можно скрыть */
-@media (max-width:380px){
-  .filters-right{ grid-template-columns:1fr; }
-  #sort-dir{ display:none; }
+  .btn-tg{width:100%;text-align:center}
 }
