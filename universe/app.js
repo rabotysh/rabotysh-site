@@ -469,7 +469,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       name:'Пионерыш',
-      img:'../images/bpionerysh.webp',
+      img:'../images/pionerysh.webp',
       category:'fan',
       date:'2025-10-12',
       author:'Автор: Ксения Панова',
