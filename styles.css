@@ -175,3 +175,46 @@ body{
   .rb-modal__body{flex-direction:column}
   .rb-modal__media img{max-width:100%}
 }
+/* === MOBILE FILTERS: одна строка (категория | сортировка | ▼), Reset ниже === */
+@media (max-width:720px){
+  .filters-bar{ padding:12px; }
+
+  /* Поиск — отдельной строкой на всю ширину */
+  .filters-left{ flex:1 1 100%; margin:0 0 8px 0; }
+  .filters-left input[type="search"]{ width:100%; }
+
+  /* Три колонки: кат | сорт | кнопка ▼ */
+  .filters-right{
+    flex:1 1 100%;
+    margin-left:0;
+    display:grid;
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr) 48px;
+    gap:8px;
+    align-items:stretch;
+  }
+
+  /* Селекты растягиваются и не обрезают текст */
+  #type-by, #sort-by{
+    width:100%; min-width:0; min-height:var(--ctrl-h);
+  }
+
+  /* Маленькая кнопка со стрелкой */
+  #sort-dir{
+    width:48px; min-width:48px; height:var(--ctrl-h);
+    padding:0; line-height:var(--ctrl-h);
+    display:inline-flex; align-items:center; justify-content:center;
+    border:1px solid #ddd; border-radius:10px; background:#fff;
+  }
+
+  /* Сбросить — новой строкой на всю ширину */
+  #reset{
+    grid-column:1 / -1; width:100%;
+    justify-self:stretch;
+  }
+}
+
+/* На очень узких экранах — уходим в одну колонку */
+@media (max-width:380px){
+  .filters-right{ grid-template-columns: 1fr; }
+  #sort-dir{ display:none; } /* места уже нет — прячем кнопку */
+}
