@@ -311,3 +311,36 @@ img.icon{ width:32px; height:32px; object-fit:contain; display:inline-block; }
 .btn-quiet:hover{
   box-shadow: 0 4px 12px rgba(29,47,138,.10);
 }
+/* --- header buttons: home icon + compact ozon on mobile --- */
+.btn-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;                 /* квадратная кнопка */
+  min-width:44px;
+  height:var(--ctrl-h);
+  padding:0;                  /* без внутренних отступов */
+}
+
+.btn-icon svg{
+  width:20px; height:20px;    /* размер иконки */
+  fill:#fff;
+}
+
+.btn-ozon{
+  /* базово такой же размер, но можно дать микро-ужатие текста */
+}
+
+@media (max-width:520px){
+  .nav-main .btn{ min-width:auto; }
+  .btn-ozon{
+    font-size:14px;           /* было ~16 — делаем компактнее на мобиле */
+    padding:8px 12px;         /* чуть меньше отступы */
+    height:38px;              /* немного ниже, чтобы влезать рядом с домиком */
+    line-height:38px;
+  }
+  .btn-icon{
+    height:38px;              /* выровнять по высоте с .btn-ozon */
+  }
+}
+
