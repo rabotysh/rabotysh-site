@@ -516,12 +516,12 @@ document.addEventListener('DOMContentLoaded', () => {
       desc:'Согласно моим расчётам, нам недоплачивают'
     },
     {
-  name:'Вампирыш',
-  img:'../images/vampirysh.webp',
+  name:'Геймерыш',
+  img:'../images/geymerysh.webp',
   category:'fan',
   date:'2025-10-13',
-  author:'Автор: Гринн',
-  desc:'Работает в ночную смену. В перерывах пьёт гранатовый сок.'
+  author:'Автор: Ok.Ri',
+  desc:'Ночью Работыш превращается в Геймерыша'
 },
     {
   name:'Вампирыш',
