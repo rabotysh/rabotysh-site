@@ -556,14 +556,6 @@ document.addEventListener('DOMContentLoaded', () => {
   desc:'Пытается выжить с малышом, оставаясь честным работышем'
 },
     {
-  name:'Додэпыш',
-  img:'../images/dodepysh.webp',
-  category:'fan',
-  date:'2025-10-15',
-  author:'Автор: Dante777',
-  desc:'Часы было жалко, по этому на додэп ушли штаны.'
-}
-    {
   name:'Народникыш',
   img:'../images/narodnikysh.webp',
   category:'fan',
@@ -571,6 +563,15 @@ document.addEventListener('DOMContentLoaded', () => {
   author:'Автор: гойда!!',
   desc:'Репетиции после концерта, конечно, вещь ужасная, зато вдохновение дают'
 },
+    {
+  name:'Додэпыш',
+  img:'../images/dodepysh.webp',
+  category:'fan',
+  date:'2025-10-15',
+  author:'Автор: Dante777',
+  desc:'Часы было жалко, по этому на додэп ушли штаны.'
+}
+    
   ];
 
   // === Нормализация: добавляем таймстамп из даты и исходный индекс (для тай-брейка) ===
