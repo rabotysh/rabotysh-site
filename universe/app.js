@@ -570,6 +570,174 @@ document.addEventListener('DOMContentLoaded', () => {
   date:'2025-10-15',
   author:'Автор: Dante777',
   desc:'Часы было жалко, по этому на додэп ушли штаны.'
+},
+    {
+  name:'Бирюсеныш',
+  img:'../images/biryusenysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: Lara',
+  desc:'Слесарь МСР на Красноярском заводе Бирюса. Стоит с 7 утра до 15:30 на конвейере и крутит шуруповёртом что-то в холодильнике, и хлещет Флэш, так работает 5/2.'
+},
+    {
+  name:'Невыспавшишишь',
+  img:'../images/nevyspavshishish.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: Диана',
+  desc:'В 6 подём, в 10 сон… что за график?'
+},
+    {
+  name:'Гранпёныш',
+  img:'../images/granpenysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: Грейси кит, есть только в тиктоке :D (@Inoplanetyashka01)',
+  desc:'Это Гранпеныш. Он нлошка и Гранпи в другой вселенной :D'
+},
+    {
+  name:'М. Видеомыш',
+  img:'../images/m-videomysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: Hakiriot',
+  desc:'Консультант М.'
+},
+    {
+  name:'Корректировщик девятого ранга Работыш',
+  img:'../images/korrektirovschik-devyatogo-ranga-rabotysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: Rach',
+  desc:'Корректировщик девятого ранга (Roland из игры Library of ruina)'
+},
+    {
+  name:'Рейгеныш',
+  img:'../images/reygenysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: Rach',
+  desc:'Величайший экстрасенс 21-ого века взятый прямиком с аниме Mob psycho 100!'
+},
+    {
+  name:'Нарутыш',
+  img:'../images/narutysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: kattel',
+  desc:'Даттебайо!'
+},
+    {
+  name:'Оптик-консультантыш',
+  img:'../images/optik-konsultantysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: Takata_yukii',
+  desc:'Какую оправку подберём? У вас рецепт с собой?'
+},
+    {
+  name:'Тренерыш',
+  img:'../images/trenerysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: JerryKRD',
+  desc:'Тот самый тренер, который лежит на скамье для жима'
+},
+    {
+  name:'Конторыш',
+  img:'../images/kontorysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: Р.Е. Зультатов',
+  desc:'Вы имеете право молчать хранение.'
+},
+    {
+  name:'Психовоиныш',
+  img:'../images/psihovoinysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: Dante777',
+  desc:'Как и любой уважающий себя психовоин, ищет Космокороля.'
+},
+    {
+  name:'Алкотекыш',
+  img:'../images/alkotekysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: Натали',
+  desc:'Работает в Алкотеке и верит в лучшее. «Ой, а я думал это Аптека»'
+},
+    {
+  name:'Официантыш',
+  img:'../images/oficiantysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: Bibi',
+  desc:'Он может всë'
+},
+    {
+  name:'СМПшиш',
+  img:'../images/smpshish.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: glowstick0_o',
+  desc:'Уставший смпшиш приехал к бабушке с высоким давлением'
+},
+    {
+  name:'Дежурыш (Стационарыш)',
+  img:'../images/dezhurysh-stacionarysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: tronairishina',
+  desc:'Выучился на врача, но до сих пор не понял, зачем он на это подписался. Переехал на пмж в стационар. Дежурит сутки через сутки  за сущие копейки. Стремится к лучшей версии себя, но бросить курить получается только в отпуске.'
+},
+    {
+  name:'Общепитыш',
+  img:'../images/obschepitysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: dimaagay',
+  desc:'С большой вероятностью студент'
+},
+    {
+  name:'Рекламыш',
+  img:'../images/reklamysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: Teminchek',
+  desc:'Рекламыш работает в рекламе и делает макеты календарей, открыток и всякого такого.'
+},
+    {
+  name:'Народнышка',
+  img:'../images/narodnyshka.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: @pauline_nicol',
+  desc:'Полевых цветов веночек...'
+},
+    {
+  name:'Программистыш',
+  img:'../images/programmistysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: Kokariko',
+  desc:'Программистыш настолько преисполнился в своем самопознании программного кода, что его тело стало словно двоичный код. А еще он купил шапку-антенну, чтобы везде, где бы он не был, ловил Wi-Fi'
+},
+    {
+  name:'Скуфыш',
+  img:'../images/skufysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: @pauline_nicol',
+  desc:'Совсем себя запустил!'
+},
+    {
+  name:'Пинкфлойдыш',
+  img:'../images/pinkfloydysh.webp',
+  category:'fan',
+  date:'2025-10-17',
+  author:'Автор: Ксения Панова',
+  desc:'Слушает только ту музыку, где есть «ву-ву-ву-ву-ву» и «ААаАааАААаааА»'
 }
     
   ];
