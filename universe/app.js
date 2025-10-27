@@ -741,7 +741,7 @@ document.addEventListener('DOMContentLoaded', () => {
 },
     {
   name:'Привиденыш',
-  img:'../images/prividenysh.webp',
+  img:'../images/privedenysh.webp',
   category:'fan',
   date:'2025-10-27',
   author:'Автор: Dante777',
