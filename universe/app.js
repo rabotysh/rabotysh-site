@@ -738,6 +738,78 @@ document.addEventListener('DOMContentLoaded', () => {
   date:'2025-10-17',
   author:'Автор: Ксения Панова',
   desc:'Слушает только ту музыку, где есть «ву-ву-ву-ву-ву» и «ААаАааАААаааА»'
+},
+    {
+  name:'Привиденыш',
+  img:'../images/prividenysh.webp',
+  category:'fan',
+  date:'2025-10-27',
+  author:'Автор: Dante777',
+  desc:'"БУ!" Работыш надел дырявую простыню и пугает окружающих.'
+},
+    {
+  name:'Волонтëрыш',
+  img:'../images/volontyorysh.webp',
+  category:'fan',
+  date:'2025-10-27',
+  author:'Автор: tapok',
+  desc:'Творить добро и делать мир лучше'
+},
+    {
+  name:'Джеймсышь',
+  img:'../images/dzheymsysh.webp',
+  category:'fan',
+  date:'2025-10-27',
+  author:'Автор: Rach',
+  desc:'Один из членов команды Ракета уже прямо тут! Твой выбор сражаться или же сдаваться. На кону твоя жизнь и твои покемоны! (Pokémon James Team Rocket)'
+},
+    {
+  name:'Рокерыш',
+  img:'../images/rokerysh.webp',
+  category:'fan',
+  date:'2025-10-27',
+  author:'Автор: Ульяна Мишина',
+  desc:'Побывал на всех концертах рок групп'
+},
+    {
+  name:'Ведьмышка',
+  img:'../images/vedmyshka.webp',
+  category:'fan',
+  date:'2025-10-27',
+  author:'Автор: Екатерина Алексеевна',
+  desc:'То ли наколдовала, то ли само получилось.'
+},
+    {
+  name:'Сберыш',
+  img:'../images/sberysh.webp',
+  category:'fan',
+  date:'2025-10-27',
+  author:'Автор: Пан Паша',
+  desc:'Любит спать (но не может)'
+},
+    {
+  name:'Чайныш',
+  img:'../images/chaynysh.webp',
+  category:'fan',
+  date:'2025-10-27',
+  author:'Автор: Екатерина Алексеевна',
+  desc:'Любит чай, не любит работать'
+},
+    {
+  name:'Инженерыш-конструктыш',
+  img:'../images/inzhenerysh-konstruktysh.webp',
+  category:'fan',
+  date:'2025-10-27',
+  author:'Автор: Vel\'mozha',
+  desc:'Офисный работыш (постоянно пьющий чай), которому иногда приходится ходить в цех'
+},
+    {
+  name:'Киношыш',
+  img:'../images/kinoshysh.webp',
+  category:'fan',
+  date:'2025-10-27',
+  author:'Автор: Аня Галина',
+  desc:'Киношыш пашет по 12 часов подряд, 7 дней в неделю. Всё ради того, чтобы снять для тебя сериальчик'
 }
     
   ];
