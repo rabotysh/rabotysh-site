@@ -756,7 +756,7 @@ document.addEventListener('DOMContentLoaded', () => {
   desc:'Творить добро и делать мир лучше'
 },
     {
-  name:'Джеймсышь',
+  name:'Джеймсыш',
   img:'../images/dzheymsysh.webp',
   category:'fan',
   date:'2025-10-27',
@@ -810,6 +810,38 @@ document.addEventListener('DOMContentLoaded', () => {
   date:'2025-10-27',
   author:'Автор: Аня Галина',
   desc:'Киношыш пашет по 12 часов подряд, 7 дней в неделю. Всё ради того, чтобы снять для тебя сериальчик'
+},
+    {
+  name:'Стриптизёрыш',
+  img:'../images/striptizerysh.webp',
+  category:'fan',
+  date:'2025-11-17',
+  author:'Автор: Анна Голубева',
+  desc:'Его миссия — заставлять публику визжать от восторга! Работает по принципу «чем меньше одежды — тем больше аплодисментов»'
+},
+    {
+  name:'Судыш',
+  img:'../images/sudysh.webp',
+  category:'fan',
+  date:'2025-11-17',
+  author:'Автор: Маргарита Калашникова',
+  desc:'Не ори, не кидай в них вещи! Вдох-выдох! Ведется аудиопротоколирование'
+},
+    {
+  name:'Панкыш',
+  img:'../images/pankysh.webp',
+  category:'fan',
+  date:'2025-11-17',
+  author:'Автор: Ксения Панова',
+  desc:'Ядрёный как кабан'
+},
+    {
+  name:'Блокнотышка',
+  img:'../images/bloknotyshka.webp',
+  category:'fan',
+  date:'2025-11-17',
+  author:'Автор: mairylea tg@mairynotes',
+  desc:'Её блокноты повидали коллажи не только из наклеек, но и из чайных пакетиков, вырезок, упаковок, шерсти кота...'
 }
     
   ];
